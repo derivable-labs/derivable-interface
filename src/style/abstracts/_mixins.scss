@@ -1,0 +1,44 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 768px      : Phone
+769px - 992px  : tablet
+993px - 1200px : small-desktop
+1200px         : desktop
+
+$breakpoint arguement choices:
+- Phone
+- tablet
+- small-desktop
+- desktop
+
+1em = 16px
+*/
+
+@mixin backgroundGradient {
+  background: linear-gradient(270deg, #96CF24 10.53%, #5AA62B 100%);
+}
+
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 768px) {
+      @content
+    }; // 0 - 768px
+  }
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 991px) {
+      @content
+    };
+  }
+  @if $breakpoint == small-desktop {
+    @media only screen and (max-width: 1400px) {
+      @content
+    };
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1401px) {
+      @content
+    }; // 1200px
+  }
+}
+

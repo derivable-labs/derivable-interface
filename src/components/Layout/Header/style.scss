@@ -1,0 +1,220 @@
+@import "../../../style/abstracts/mixins";
+@import "../../../style/abstracts/variables";
+
+.header {
+  display: flex;
+  height: 80px;
+  padding: 20px 50px 20px 15rem;
+  align-items: center;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  @include respond(phone) {
+    position: relative;
+    background: linear-gradient(45deg, #143459, #06274e);
+    padding: 2rem;
+  }
+
+
+  .logo-box {
+    text-align: right;
+  }
+
+  .menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    &--item {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 19px;
+      display: block;
+      text-align: center;
+      padding: 1rem 3rem;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+
+    &>*:not(:last-child) {
+      margin-right: 2rem;
+    }
+
+    &--select-network {
+      background: $color-card;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      &>*:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    &--connect-wallet {
+      border: 1px solid $color-primary;
+      color: $color-primary;
+      border-radius: 1rem;
+      padding: 1rem;
+      cursor: pointer;
+    }
+
+    &--bnt-setting {
+      background: $color-card;
+      padding: 1rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center;
+    top: 0rem;
+    right: 0rem;
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-image: radial-gradient(black, #05264E);
+    z-index: 1000;
+    transform: scale(0);
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .25s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+  }
+
+
+  //FUNCTIONALITY
+  &__checkbox:checked ~ &__background {
+    opacity: 1;
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+
+
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 50%;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: white;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s;
+    }
+
+    &::before {
+      top: -.8rem;
+    }
+
+    &::after {
+      top: .8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}

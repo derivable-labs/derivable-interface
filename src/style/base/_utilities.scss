@@ -1,0 +1,137 @@
+@import "../abstracts/variables";
+
+body {
+  box-sizing: border-box;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.text {
+  &-center {
+    text-align: center
+  }
+
+  &-left {
+    text-align: left
+  }
+
+  &-right {
+    text-align: right
+  }
+
+  &-primary {
+    color: $color-primary !important;
+  }
+}
+
+.text-justice {
+  font-family: 'iCiel Soup of Justice', 'Kanit',sans-serif;
+}
+
+.m {
+  @for $i from 0 through 10 {
+    &-#{$i} {
+      margin: #{$i}rem;
+    }
+    &t-#{$i} {
+      margin-top: #{$i}rem;
+    }
+    &b-#{$i} {
+      margin-bottom: #{$i}rem;
+    }
+    &l-#{$i} {
+      margin-left: #{$i}rem;
+    }
+    &r-#{$i} {
+      margin-right: #{$i}rem;
+    }
+  }
+  &t-05 {
+    margin-top: 0.5rem;
+  }
+  &b-05 {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.p {
+  @for $i from 0 through 10 {
+    &-#{$i} {
+      padding: #{$i}rem;
+    }
+    &t-#{$i} {
+      padding-top: #{$i}rem;
+    }
+    &b-#{$i} {
+      padding-bottom: #{$i}rem;
+    }
+    &l-#{$i} {
+      padding-left: #{$i}rem;
+    }
+    &r-#{$i} {
+      padding-right: #{$i}rem;
+    }
+  }
+}
+
+// font-weight from 300 -> 700
+.fw {
+  @for $i from 3 through 7 {
+    &-#{$i}00 {
+      font-weight: #{$i}00;
+    }
+  }
+}
+
+// fontsize from 12 -> 60px
+.fs {
+  @for $i from 1 through 30 {
+    &-#{10 + $i * 2} {
+      font-size: #{10 + $i * 2}px;
+    }
+  }
+}
+
+.line-height {
+  @for $i from 1 through 5 {
+    &-#{$i} {
+      line-height: #{$i}rem;
+    }
+  }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+
+.w-15 {
+  width: 10%;
+}
+
+.w-20 {
+  width: 10%;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.scale-animation {
+  animation-name: scaleAnimation;
+  animation-duration: .25s;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    transform: scale(0.0)
+  }
+  100% {
+    transform: scale(1.0);
+  }
+}
