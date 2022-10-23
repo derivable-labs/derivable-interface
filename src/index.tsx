@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ethers} from 'ethers';
 import {Web3ReactProvider} from '@web3-react/core';
+import {BrowserRouter as Router} from 'react-router-dom';
+
 
 function getLibrary(provider: any) {
   const library = new ethers.providers.Web3Provider(provider);
@@ -18,7 +20,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Web3ReactProvider getLibrary={getLibrary}>
+      <Router>
       <App />
+      </Router>
     </Web3ReactProvider>
   </React.StrictMode>
 );

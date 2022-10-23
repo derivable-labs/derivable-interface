@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import './style.scss'
 import {BlurBackground} from "../BlurBackground";
 
@@ -9,7 +8,6 @@ const Layout = (props: any) => {
   return (
     <BlurBackground pointNumber={10}>
       <div className='layout'>
-        <Header />
         <main className='main'>
           {children}
         </main>
