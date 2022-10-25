@@ -1,0 +1,59 @@
+@import "../../style/abstracts/variables";
+
+.wallet-modal {
+  .address-box {
+    padding: 12px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    background: black;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .address {
+    flex: 1 1 0%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: $color-grey;
+    font-weight: 700;
+  }
+  .view-on-bsc-box {
+    display: flex;
+    justify-content: end;
+  }
+  .view-on-bsc-link {
+    display: flex;
+    align-items: center;
+  }
+  .disconnect-box {
+  }
+  .disconnect-btn {
+    width: 100%;
+    height: 46px;
+    background: transparent;
+    border-radius: 8px;
+    border: 1px solid $color-grey;
+    margin: auto;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: $color-grey;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.25s ease-out;
+
+    &:hover {
+      background: $color-grey;
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}

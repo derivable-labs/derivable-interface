@@ -1,50 +1,60 @@
-import React, {useState} from 'react'
+import React, {useMemo, useState} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {WALLET_CONNECTOR} from "../../../utils/constant";
 import connectors from "../../../utils/connectors";
 import {useWeb3React} from "@web3-react/core";
 import {Web3ReactModal} from 'web3-react-modal';
+import {Link, useLocation} from "react-router-dom"
 import 'web3-react-modal/dist/index.css'
-
-const menus = [
-  {
-    name: 'Home',
-    href: '/'
-  },
-  {
-    name: 'Swap',
-    href: '/'
-  },
-  {
-    name: 'Earn',
-    href: '/'
-  },
-  {
-    name: 'Create',
-    href: '/'
-  },
-  {
-    name: 'Docs',
-    href: '/'
-  },
-]
+import {DappType} from "../../../utils/types";
+import {shortenAddressString} from "../../../utils/helpers";
+import {WalletModal} from "../../WalletModal";
 
 const Header = ({
-                  visibleWalletModal,
-                  setVisibleWalletModal
-                }: any) => {
+                  dapps,
+                  visibleConnectModal,
+                  setVisibleConnectModal
+                }: {
+  visibleConnectModal: boolean,
+  setVisibleConnectModal: any,
+  dapps: DappType[]
+}) => {
+  const { account } = useWeb3React()
+  const location = useLocation()
   const { activate } = useWeb3React();
   const { width } = useWindowSize()
+  const [visibleWalletModal, setVisibleWalletModal] = useState<boolean>(false)
   const isPhone = width && width < 768
 
+  const menus = useMemo(() => {
+    const result: { name: string, path: string }[] = []
+    for (let i = 0; i < dapps.length; i++) {
+      const children = dapps[i].configs.children;
+      if (children) {
+        for (let j in children) {
+          result.push({
+            name: children[j].name,
+            path: children[j].path,
+          })
+        }
+      } else {
+        result.push({
+          name: dapps[i].configs.name,
+          path: dapps[i].configs.path,
+        })
+      }
+    }
+    return result
+  }, [dapps])
+
   return (<header className='header'>
-      <div className='logo-box'>
+      <Link to="/" className='logo-box'>
         {
           width &&
           <img src={isPhone ? '/logo-white.png' : '/logo.png'} alt="" />
         }
-      </div>
+      </Link>
       {
         isPhone ?
           <div className="navigation">
@@ -62,9 +72,9 @@ const Header = ({
                 {
                   menus.map((menu) => {
                     return <li className="navigation__item">
-                      <a href={menu.href} className="navigation__link">
+                      <Link to={menu.path} className="navigation__link">
                         {menu.name}
-                      </a>
+                      </Link>
                     </li>
                   })
                 }
@@ -74,8 +84,11 @@ const Header = ({
           :
           <div className='menu'>
             {
-              menus.map((menu) => {
-                return <a href={menu.href} className='menu--item'>{menu.name}</a>
+              menus.map((menu, key) => {
+                return <Link
+                  to={menu.path}
+                  className={`menu--item ${(location.pathname.includes(menu.path) || (location.pathname === '/' && key === 0)) && 'active'}`}
+                >{menu.name}</Link>
               })
             }
           </div>
@@ -102,11 +115,20 @@ const Header = ({
           </svg>
           <span>Etherium</span>
         </div>
-        <div
-          className="header__right--connect-wallet"
-          onClick={() => setVisibleWalletModal(true)}
-        >Connect Wallet
-        </div>
+        {account ?
+          <div
+            className='header__right--account-btn'
+            onClick={() => setVisibleWalletModal(true)}
+          >
+            {shortenAddressString(account)}
+          </div>
+          :
+          <div
+            className="header__right--connect-wallet"
+            onClick={() => setVisibleConnectModal(true)}
+          >Connect Wallet
+          </div>
+        }
         <div className="header__right--bnt-setting">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_496_468)">
@@ -122,9 +144,13 @@ const Header = ({
           </svg>
         </div>
       </div>
-      <Web3ReactModal
+      <WalletModal
         visible={visibleWalletModal}
         setVisible={setVisibleWalletModal}
+      />
+      <Web3ReactModal
+        visible={visibleConnectModal}
+        setVisible={setVisibleConnectModal}
         providerOptions={connectors}
         onConnect={(connector: any, _: any, email: string) => {
           const name = connector?.constructor?.name;

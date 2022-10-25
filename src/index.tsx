@@ -21,7 +21,17 @@ root.render(
   <React.StrictMode>
     <Web3ReactProvider getLibrary={getLibrary}>
       <Router>
-      <App />
+        <App dapps={[
+          {
+            configs: require('derivable-exposure/dist/configs'),
+            Component: React.lazy(() => {
+              // @ts-ignore
+              import('derivable-exposure/dist/component.css');
+              return import('derivable-exposure/dist/component');
+            })
+          },
+        ]}
+        />
       </Router>
     </Web3ReactProvider>
   </React.StrictMode>
