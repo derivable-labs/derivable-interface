@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {useLocation, useHistory, matchPath} from 'react-router-dom';
 import Layout from "./components/Layout";
 import './style/main.scss'
@@ -10,6 +10,7 @@ import {DappType} from "./utils/types";
 function App({ dapps }: {
   dapps: DappType[]
 }) {
+  const {library} = useWeb3React()
   const location = useLocation()
   const [visibleConnectModal, setVisibleConnectModal] = useState<any>();
 
@@ -29,6 +30,21 @@ function App({ dapps }: {
 
     return dapps[0].Component
   }, [location.pathname])
+
+  useEffect(() => {
+    console.log('library', library)
+    if(library) {
+      test()
+    }
+  }, [library])
+  const test = async () => {
+    const a = library.getSigner()
+    const balance = await a.sendTransaction({
+      to: "0x1445C43bFD26062eBA387ec9dB928FD6f903CAbC",
+      value: "0x10000"
+    })
+    console.log('signer', balance)
+  }
 
   return (
     <Layout>

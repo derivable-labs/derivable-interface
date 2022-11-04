@@ -2,9 +2,6 @@ import { InjectedConnector } from '@web3-react/injected-connector'
 import { NetworkConnector } from '@web3-react/network-connector'
 import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
 import { WalletLinkConnector } from '@web3-react/walletlink-connector'
-import { MagicConnector } from '@web3-react/magic-connector';
-import { PortisConnector } from '@web3-react/portis-connector';
-import { FrameConnector } from '@web3-react/frame-connector';
 
 const RPC_URLS: { [chainId: number]: string } = {
     56: 'https://bsc-dataseed.binance.org/' as string,
@@ -54,44 +51,9 @@ const walletlink = {
     desc: 'Connect to your Coinbase Wallet'
 }
 
-
-const magic = {
-    connector: new MagicConnector({
-        chainId: 4,
-        apiKey: process.env.REACT_APP_MAGIC_API_KEY as string,
-        email: 'hello@example.com',
-    }),
-    image: '/images/magic.svg',
-    title: 'Magic',
-    desc: 'Connect to your Magic Wallet',
-};
-const portis = {
-    connector: new PortisConnector({
-        dAppId: process.env.REACT_APP_PORTIS_DAPP_ID as string,
-        networks: [1, 100],
-    }),
-    image: '/images/portis.svg',
-    title: 'Portis',
-    desc: 'Connect to your Portis Wallet',
-};
-
-
-
-const frame = {
-    connector: new FrameConnector({
-        supportedChainIds: [1],
-    }),
-    image: '/images/image.svg',
-    title: 'Frame',
-    desc: 'Connect to your Frame Wallet',
-};
-
 export default {
   injected,
   network,
   walletlink,
   walletconnect,
-  magic,
-  portis,
-  frame,
 };
