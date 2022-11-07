@@ -55,44 +55,44 @@ const Header = ({
           <img src={isPhone ? '/logo-white.png' : '/logo.png'} alt="" />
         }
       </Link>
-      {
-        isPhone ?
-          <div className="navigation">
-            <input type="checkbox" className="navigation__checkbox" id="navi-toggle" />
+      {/*{*/}
+      {/*  isPhone ?*/}
+      {/*    <div className="navigation">*/}
+      {/*      <input type="checkbox" className="navigation__checkbox" id="navi-toggle" />*/}
 
-            { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-            <label htmlFor="navi-toggle" className="navigation__button">
-              <span className="navigation__icon">&nbsp;</span>
-            </label>
+      {/*      { /* eslint-disable-next-line jsx-a11y/label-has-associated-control *!/*/}
+      {/*      <label htmlFor="navi-toggle" className="navigation__button">*/}
+      {/*        <span className="navigation__icon">&nbsp;</span>*/}
+      {/*      </label>*/}
 
-            <div className="navigation__background">&nbsp;</div>
+      {/*      <div className="navigation__background">&nbsp;</div>*/}
 
-            <nav className="navigation__nav">
-              <ul className="navigation__list">
-                {
-                  menus.map((menu) => {
-                    return <li className="navigation__item">
-                      <Link to={menu.path} className="navigation__link">
-                        {menu.name}
-                      </Link>
-                    </li>
-                  })
-                }
-              </ul>
-            </nav>
-          </div>
-          :
-          <div className='menu'>
-            {
-              menus.map((menu, key) => {
-                return <Link
-                  to={menu.path}
-                  className={`menu--item ${(location.pathname.includes(menu.path) || (location.pathname === '/' && key === 0)) && 'active'}`}
-                >{menu.name}</Link>
-              })
-            }
-          </div>
-      }
+      {/*      <nav className="navigation__nav">*/}
+      {/*        <ul className="navigation__list">*/}
+      {/*          {*/}
+      {/*            menus.map((menu) => {*/}
+      {/*              return <li className="navigation__item">*/}
+      {/*                <Link to={menu.path} className="navigation__link">*/}
+      {/*                  {menu.name}*/}
+      {/*                </Link>*/}
+      {/*              </li>*/}
+      {/*            })*/}
+      {/*          }*/}
+      {/*        </ul>*/}
+      {/*      </nav>*/}
+      {/*    </div>*/}
+      {/*    :*/}
+      {/*    <div className='menu'>*/}
+      {/*      {*/}
+      {/*        menus.map((menu, key) => {*/}
+      {/*          return <Link*/}
+      {/*            to={menu.path}*/}
+      {/*            className={`menu--item ${(location.pathname.includes(menu.path) || (location.pathname === '/' && key === 0)) && 'active'}`}*/}
+      {/*          >{menu.name}</Link>*/}
+      {/*        })*/}
+      {/*      }*/}
+      {/*    </div>*/}
+      {/*}*/}
       <div className='header__right'>
         <div className="header__right--select-network">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
