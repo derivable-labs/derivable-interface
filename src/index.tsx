@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Buffer } from 'buffer';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -7,6 +8,7 @@ import {ethers} from 'ethers';
 import {Web3ReactProvider} from '@web3-react/core';
 import {BrowserRouter as Router} from 'react-router-dom';
 
+window.Buffer = window.Buffer || Buffer;
 
 function getLibrary(provider: any) {
   const library = new ethers.providers.Web3Provider(provider);
