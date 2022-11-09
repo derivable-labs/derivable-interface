@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react'
+import React, {useMemo, useState, useEffect} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {WALLET_CONNECTOR} from "../../../utils/constant";
@@ -26,6 +26,18 @@ const Header = ({
   const { width } = useWindowSize()
   const [visibleWalletModal, setVisibleWalletModal] = useState<boolean>(false)
   const isPhone = width && width < 768
+
+  useEffect(() => {
+    const initConnector = localStorage.getItem(WALLET_CONNECTOR)
+    if (initConnector) {
+      const connector = Object.values(connectors)
+        .map(({ connector }) => connector)
+        .find(connector => connector?.constructor?.name === initConnector)
+      if (connector) {
+        activate(connector)
+      }
+    }
+  }, [activate])
 
   const menus = useMemo(() => {
     const result: { name: string, path: string }[] = []
