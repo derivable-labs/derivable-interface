@@ -1,4 +1,5 @@
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
 body {
   box-sizing: border-box;
@@ -103,6 +104,19 @@ body {
 
 .hidden {
     display: none !important;
+}
+
+.hidden-on-desktop {
+  display: none !important;
+}
+
+@include respond(phone) {
+  .hidden-on-desktop {
+    display: revert !important;
+  }
+  .hidden-on-phone {
+    display: none !important;;
+  }
 }
 
 .d-inline-block {

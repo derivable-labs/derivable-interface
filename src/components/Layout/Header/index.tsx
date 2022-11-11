@@ -105,8 +105,18 @@ const Header = ({
       {/*      }*/}
       {/*    </div>*/}
       {/*}*/}
+      <div className='menu'>
+        {
+          menus.map((menu, key) => {
+            return <Link
+              to={menu.path}
+              className={`menu--item ${(location.pathname.includes(menu.path) || (location.pathname === '/' && key === 0)) && 'active'}`}
+            >{menu.name}</Link>
+          })
+        }
+      </div>
       <div className='header__right'>
-        <div className="header__right--select-network">
+        <div className="hidden-on-phone header__right--select-network">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_453_7001)">
               <path
