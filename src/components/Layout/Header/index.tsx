@@ -116,7 +116,7 @@ const Header = ({
         }
       </div>
       <div className='header__right'>
-        <div className="hidden-on-phone header__right--select-network">
+        {/* <div className="hidden-on-phone header__right--select-network">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_453_7001)">
               <path
@@ -136,6 +136,10 @@ const Header = ({
             </defs>
           </svg>
           <span>Etherium</span>
+        </div> */}
+        <div className="hidden-on-phone header__right--select-network">
+          <img src='/icons/56.svg' alt='' height='16'/>
+          <span>BNB Chain</span>
         </div>
         {account ?
           <div

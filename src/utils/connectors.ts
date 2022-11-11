@@ -10,7 +10,7 @@ const RPC_URLS: { [chainId: number]: string } = {
 
 const injected = {
     connector: new InjectedConnector({
-        supportedChainIds: [42161, 56]
+        supportedChainIds: [42161, 56, 31337]
     }),
     image: '/images/metamask.svg',
     title: 'Metamask',
