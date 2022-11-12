@@ -5,12 +5,13 @@ import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 
 const RPC_URLS: { [chainId: number]: string } = {
     56: 'https://bsc-dataseed.binance.org/' as string,
-    42161: 'https://arb1.arbitrum.io/rpc' as string
+    42161: 'https://arb1.arbitrum.io/rpc' as string,
+    31337: 'http://localhost:8545/' as string
 }
 
 const injected = {
     connector: new InjectedConnector({
-        supportedChainIds: [42161, 56]
+        supportedChainIds: [42161, 56, 31337, 1337]
     }),
     image: '/images/metamask.svg',
     title: 'Metamask',
@@ -31,7 +32,8 @@ const walletconnect = {
     connector: new WalletConnectConnector({
         rpc: {
           56: RPC_URLS[56],
-          42161: RPC_URLS[42161]
+          42161: RPC_URLS[42161],
+          31337: RPC_URLS[31337]
         },
         qrcode: true,
     }),

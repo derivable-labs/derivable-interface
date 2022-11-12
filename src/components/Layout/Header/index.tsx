@@ -1,7 +1,14 @@
-import React, {useMemo, useState, useEffect} from 'react'
+import React, {useMemo, useState, useEffect, Fragment} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
-import {WALLET_CONNECTOR} from "../../../utils/constant";
+import {
+  BSC_NETWORK,
+  CHAINS,
+  LOCAL_NETWORK,
+  NETWORK_METADATA, NETWORK_SUPPORTED,
+  SELECTED_NETWORK_LOCAL_STORAGE_KEY,
+  WALLET_CONNECTOR
+} from "../../../utils/constant";
 import connectors from "../../../utils/connectors";
 import {useWeb3React} from "@web3-react/core";
 import {Web3ReactModal} from 'web3-react-modal';
@@ -10,6 +17,9 @@ import 'web3-react-modal/dist/index.css'
 import {DappType} from "../../../utils/types";
 import {shortenAddressString} from "../../../utils/helpers";
 import {WalletModal} from "../../WalletModal";
+import {toast, ToastContainer} from "react-toastify";
+import {Menu} from "@headlessui/react";
+
 
 const Header = ({
                   dapps,
@@ -20,7 +30,7 @@ const Header = ({
   setVisibleConnectModal: any,
   dapps: DappType[]
 }) => {
-  const { account } = useWeb3React()
+  const { account, active, chainId } = useWeb3React()
   const location = useLocation()
   const { activate } = useWeb3React();
   const { width } = useWindowSize()
@@ -60,6 +70,44 @@ const Header = ({
     return result
   }, [dapps])
 
+
+  const switchNetwork = async (chainId: number) => {
+    if (!active) {
+      // chainId in localStorage allows to switch network even if wallet is not connected
+      // or there is no wallet at all
+      localStorage.setItem(SELECTED_NETWORK_LOCAL_STORAGE_KEY, chainId.toString())
+      document.location.reload()
+      return
+    }
+
+    try {
+      const chainIdHex = '0x' + chainId.toString(16)
+      //@ts-ignore
+      await window.ethereum.request({
+        method: 'wallet_switchEthereumChain',
+        params: [{ chainId: chainIdHex }]
+      })
+      //@ts-ignore
+      toast.success('Connected to ' + CHAINS[chainId])
+      //@ts-ignore
+      return CHAINS[chainId]
+    } catch (ex) {
+      //@ts-ignore
+      if (ex.code !== 4001) {
+        //@ts-ignore
+        return await addNetwork(NETWORK_METADATA[chainId])
+      }
+
+      console.error('error', ex)
+    }
+  }
+
+  const addNetwork = async (metadata: any) => {
+    //@ts-ignore
+    await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [metadata] }).catch()
+  }
+
+  // @ts-ignore
   return (<header className='header'>
       <Link to="/" className='logo-box'>
         {
@@ -116,27 +164,34 @@ const Header = ({
         }
       </div>
       <div className='header__right'>
-        <div className="hidden-on-phone header__right--select-network">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0_453_7001)">
-              <path
-                d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16Z"
-                fill="#627EEA" />
-              <path d="M8 2V6.435L11.7485 8.11L8 2Z" fill="white" fill-opacity="0.602" />
-              <path d="M8.249 2L4.5 8.11L8.249 6.435V2Z" fill="white" />
-              <path d="M8 11.176V14.1895L11.751 9L8 11.176Z" fill="white" fill-opacity="0.602" />
-              <path d="M8.249 14.1895V11.1755L4.5 9L8.249 14.1895Z" fill="white" />
-              <path d="M8 10.3505L11.7485 8.174L8 6.5V10.3505Z" fill="white" fill-opacity="0.2" />
-              <path d="M4.5 8.174L8.249 10.3505V6.5L4.5 8.174Z" fill="white" fill-opacity="0.602" />
-            </g>
-            <defs>
-              <clipPath id="clip0_453_7001">
-                <rect width="16" height="16" fill="white" />
-              </clipPath>
-            </defs>
-          </svg>
-          <span>Etherium</span>
+        <div className="hidden-on-phone network-select ">
+          <Menu>
+            <Menu.Button as="div" className="dropdown-arrow center-both">
+              <div className='network-button'>
+                {/*@ts-ignore*/}
+                <img src={`/icons/${NETWORK_SUPPORTED[chainId || 56]?.logo}`} alt="" />
+                {/*@ts-ignore*/}
+                <span>{NETWORK_SUPPORTED[chainId || 56]?.name}</span>
+              </div>
+            </Menu.Button>
+            <Menu.Items as="div" className="network-items">
+              {Object.values(NETWORK_SUPPORTED).map((net) => {
+                return <Menu.Item key={net.chainId}>
+                  <div
+                    className="network-item"
+                    onClick={() => {
+                      switchNetwork(net.chainId)
+                    }}
+                  >
+                    <img src={`/icons/${net.logo}`} width={24} height={24} alt="" />
+                    <span>{net.name}</span>
+                  </div>
+                </Menu.Item>
+              })}
+            </Menu.Items>
+          </Menu>
         </div>
+
         {account ?
           <div
             className='header__right--account-btn'
@@ -186,6 +241,14 @@ const Header = ({
             localStorage.setItem(WALLET_CONNECTOR, name);
           }
         }}
+      />
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        rtl={false}
+        closeOnClick={false}
+        draggable
+        theme='dark'
       />
     </header>
   )

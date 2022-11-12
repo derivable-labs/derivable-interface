@@ -40,6 +40,7 @@
       padding: 0.75rem 1.5rem;
       border-radius: 16px;
       transition: all 0.25s ease-out;
+
       &:not(:last-child) {
         margin-right: 1rem;
       }
@@ -54,21 +55,11 @@
     display: flex;
     align-items: center;
 
-    &>*:not(:last-child) {
+    & > *:not(:last-child) {
       margin-right: 2rem;
     }
 
-    &--select-network {
-      background: $color-card;
-      padding: 1rem 2rem;
-      border-radius: 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      &>*:not(:last-child) {
-        margin-right: 1rem;
-      }
-    }
+
 
     &--account-btn {
       border: 1px solid $color-primary;
@@ -93,6 +84,74 @@
       display: flex;
       align-items: center;
       cursor: pointer;
+    }
+  }
+
+  .network {
+    &-select {
+      position: relative;
+    }
+    &-button {
+      background: $color-card;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      & > *:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    &-items {
+      position: absolute;
+      right: 0;
+      top: 4.6rem;
+      min-width: 15.5rem;
+      width: 100%;
+      transform-origin: top right;
+      border-radius: 0.4rem;
+      background: $color-modal-bg;
+      border: 1px solid $color-grey-dark;
+      box-shadow: 2px 4px 8px var(--onedex-color-card-shadow-bg);
+      list-style: none;
+      cursor: pointer;
+      outline: none;
+      z-index: 1000;
+
+    }
+
+    &-item {
+      display: flex !important;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #a0a3c4;
+      padding-bottom: 1.5rem;
+      font-size: 1.4rem;
+      padding: 0.85rem 0.8rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+
+      & > *:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+
+    &-item:hover {
+      background: $color-button-bg-hover !important;
+      border-radius: 0.4rem;
+      opacity: 1;
+      color: #eee;
+    }
+
+    &-item > p {
+      margin: 0px;
+      padding-left: 1rem;
+    }
+
+    &-item > a {
+      display: inline-flex;
     }
   }
 }
