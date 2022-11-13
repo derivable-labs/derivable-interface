@@ -15,7 +15,7 @@ export const CHAINS = {
 export const NETWORK_METADATA = {
   [LOCAL_NETWORK]: {
     chainId: "0x" + LOCAL_NETWORK.toString(16),
-    chainName: "Local chain",
+    chainName: "Local Chain",
     nativeCurrency: {
       name: "ETH",
       symbol: "ETH",
@@ -26,7 +26,7 @@ export const NETWORK_METADATA = {
   },
   [BSC_NETWORK]: {
     chainId: "0x" + LOCAL_NETWORK.toString(16),
-    chainName: "BNB chain",
+    chainName: "BNB Chain",
     nativeCurrency: {
       name: "ETH",
       symbol: "ETH",
@@ -49,8 +49,8 @@ export const NETWORK_SUPPORTED = {
   },
   [LOCAL_NETWORK]: {
     chainId: LOCAL_NETWORK,
-    name: 'Local chain',
-    fullname: 'Local chain',
+    name: 'Local Chain',
+    fullname: 'Local Chain',
     logo: '31337.svg',
     explorer: "https://bscscan.com/",
     nativeTokenSymbol: 'ETH'
