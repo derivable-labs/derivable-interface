@@ -6,6 +6,7 @@ import 'derivable-exposure/dist/component.css'
 import {useWeb3React} from '@web3-react/core';
 import Header from "./components/Layout/Header";
 import {DappType} from "./utils/types";
+import {TermOfUsePopup} from "./components/TermOfUsePopup";
 
 function App({ dapps }: {
   dapps: DappType[]
@@ -52,6 +53,7 @@ function App({ dapps }: {
           setVisibleConnectModal(true)
         }}
       />
+      <TermOfUsePopup/>
     </Layout>
   );
 }
