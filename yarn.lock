@@ -3567,10 +3567,9 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha512-NfJ4UzBCcQGLDlQq7nHxH+tv3kyZ0hHQqF5BO6J7tNJeP5do1llPr8dZ8zHonfhAu0PHAdMkSo+8o0wxg9lZWw==
 
-assisted-json-rpc-provider@^1.0.0:
+"assisted-json-rpc-provider@git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#8273e84a3b4fb89eee066c214bba73799a42bd76":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/assisted-json-rpc-provider/-/assisted-json-rpc-provider-1.0.0.tgz#3c702e0c16e8d0da8886262924e0b54949ec0619"
-  integrity sha512-9Uzd6jKYjE36PIFk9/ZIcRypS87nhpZvT2YgvEIUBBeupNd3lvPGJvbbeiuMcgN8CQCydq/OvBODigmQA1briw==
+  resolved "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#8273e84a3b4fb89eee066c214bba73799a42bd76"
   dependencies:
     async-task-throttle-on-response "^1.0.1"
     ethers "^5.5.3"
@@ -4242,6 +4241,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001407:
   version "1.0.30001419"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001419.tgz#3542722d57d567c8210d5e4d0f9f17336b776457"
   integrity sha512-aFO1r+g6R7TW+PNQxKzjITwLOyDhVRLjW0LcwS/HCZGUUKTGNp9+IwLC4xyDSZBygVL/mxaFR3HIV6wEKQuSzw==
+
+caniuse-lite@^1.0.30001434:
+  version "1.0.30001434"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001434.tgz#ec1ec1cfb0a93a34a0600d37903853030520a4e5"
+  integrity sha512-aOBHrLmTQw//WFa2rcF1If9fa3ypkC1wzqqiKHgfdrXTWcU8C4gKVZT77eQAPWN1APys3+uQ0Df07rKauXGEYA==
 
 case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
@@ -4994,16 +4998,17 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
-"derivable-exposure@git+ssh://git@github.com:derivable-io/exposure-interface.git#2cd472d0587369964f9c379abddb9d6d92890712":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-interface.git#c0fe2d18b37988cb5405021c452dcce792376868":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-interface.git#2cd472d0587369964f9c379abddb9d6d92890712"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-interface.git#c0fe2d18b37988cb5405021c452dcce792376868"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
     "@types/react-collapse" "^5.0.1"
     "@uniswap/v3-core" "^1.0.1"
     "@uniswap/v3-sdk" "^3.9.0"
-    assisted-json-rpc-provider "^1.0.0"
+    assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#8273e84a3b4fb89eee066c214bba73799a42bd76"
+    caniuse-lite "^1.0.30001434"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     lodash "^4.17.21"
