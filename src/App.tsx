@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {useLocation, useHistory, matchPath} from 'react-router-dom';
 import Layout from "./components/Layout";
 import './style/main.scss'
-import 'derivable-exposure/dist/component.css'
+import 'exposure-comp/dist/component.css'
 import {useWeb3React} from '@web3-react/core';
 import Header from "./components/Layout/Header";
 import {DappType} from "./utils/types";
