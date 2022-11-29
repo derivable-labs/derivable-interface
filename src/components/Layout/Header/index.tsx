@@ -12,7 +12,7 @@ import {
 import connectors from "../../../utils/connectors";
 import {useWeb3React} from "@web3-react/core";
 import {Web3ReactModal} from 'web3-react-modal';
-import {Link, useLocation} from "react-router-dom"
+import {Link, useHistory, useLocation} from "react-router-dom"
 import 'web3-react-modal/dist/index.css'
 import {DappType} from "../../../utils/types";
 import {shortenAddressString} from "../../../utils/helpers";
@@ -32,9 +32,11 @@ const Header = ({
 }) => {
   const { account, active, chainId } = useWeb3React()
   const location = useLocation()
+  const history = useHistory()
   const { activate } = useWeb3React();
   const { width } = useWindowSize()
   const [visibleWalletModal, setVisibleWalletModal] = useState<boolean>(false)
+  const [visibleNav, setVisibleNav] = useState<boolean>(false)
   const isPhone = width && width < 768
 
   useEffect(() => {
@@ -193,7 +195,9 @@ const Header = ({
       {
         isPhone ?
           <div className="navigation">
-            <input type="checkbox" className="navigation__checkbox" id="navi-toggle" />
+            <input type="checkbox" checked={visibleNav} onChange={(e) => {
+              setVisibleNav(e.target.checked)
+            }} className="navigation__checkbox" id="navi-toggle" />
 
             { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label htmlFor="navi-toggle" className="navigation__button">
@@ -207,9 +211,12 @@ const Header = ({
                 {
                   menus.map((menu) => {
                     return <li className="navigation__item">
-                      <Link to={menu.path} className="navigation__link">
+                      <span onClick={() => {
+                        history.push(menu.path)
+                        setVisibleNav(false)
+                      }}  className="navigation__link">
                         {menu.name}
-                      </Link>
+                      </span>
                     </li>
                   })
                 }
