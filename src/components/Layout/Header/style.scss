@@ -60,7 +60,6 @@
     }
 
 
-
     &--account-btn {
       border: 1px solid $color-primary;
       color: $color-primary;
@@ -91,6 +90,7 @@
     &-select {
       position: relative;
     }
+
     &-button {
       background: $color-card;
       padding: 1rem 2rem;
@@ -196,6 +196,7 @@
     opacity: 0;
     width: 0;
     transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
   }
 
   &__list {
@@ -243,6 +244,7 @@
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+    pointer-events: auto;
   }
 
 
