@@ -6143,9 +6143,9 @@ expect@^29.0.0:
     jest-message-util "^29.1.2"
     jest-util "^29.1.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#a81ff055cb77cbec41c99999cc114d83c6564dfc":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#2b56d98edaa84ed3c6092a1c1bd9b5a1220a6dc5":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#a81ff055cb77cbec41c99999cc114d83c6564dfc"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#2b56d98edaa84ed3c6092a1c1bd9b5a1220a6dc5"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
