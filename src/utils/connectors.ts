@@ -6,12 +6,13 @@ import { WalletLinkConnector } from '@web3-react/walletlink-connector'
 const RPC_URLS: { [chainId: number]: string } = {
     56: 'https://bsc-dataseed.binance.org/' as string,
     42161: 'https://arb1.arbitrum.io/rpc' as string,
-    31337: 'http://localhost:8545/' as string
+    31337: 'http://localhost:8545/' as string,
+    97: 'https://data-seed-prebsc-1-s1.binance.org:8545/' as string
 }
 
 const injected = {
     connector: new InjectedConnector({
-        supportedChainIds: [42161, 56, 31337, 1337]
+        supportedChainIds: [42161, 56, 31337, 1337, 97]
     }),
     image: '/images/metamask.svg',
     title: 'Metamask',
@@ -20,7 +21,11 @@ const injected = {
 
 const network = {
     connector: new NetworkConnector({
-        urls: { 42161: RPC_URLS[42161], 56:  RPC_URLS[56]},
+        urls: {
+          42161: RPC_URLS[42161],
+          56:  RPC_URLS[56],
+          97:  RPC_URLS[97]
+        },
         defaultChainId: 56
     }),
     image: '/images/walletconnect.svg',
@@ -33,7 +38,8 @@ const walletconnect = {
         rpc: {
           56: RPC_URLS[56],
           42161: RPC_URLS[42161],
-          31337: RPC_URLS[31337]
+          31337: RPC_URLS[31337],
+          97: RPC_URLS[97]
         },
         qrcode: true,
     }),
@@ -46,7 +52,7 @@ const walletlink = {
     connector: new WalletLinkConnector({
         url: RPC_URLS[42161],
         appName: 'web3-react example',
-        supportedChainIds: [42161, 56]
+        supportedChainIds: [42161, 56, 97]
     }),
     image: '/images/coinbase.svg',
     title: 'Coinbase',
