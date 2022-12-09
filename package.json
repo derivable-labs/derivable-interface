@@ -20,7 +20,7 @@
     "@web3-react/walletconnect-connector": "^6.2.4",
     "@web3-react/walletlink-connector": "^6.2.3",
     "crypto": "^1.0.1",
-    "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#187fba159447cd795817925ea8d2e62e859ac402",
+    "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#d710ea7fa981bef152b1395935326c5ac749f946",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
