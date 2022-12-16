@@ -2,9 +2,7 @@ import React, {useMemo, useState, useEffect, Fragment} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {
-  BSC_NETWORK,
   CHAINS,
-  LOCAL_NETWORK,
   NETWORK_METADATA, NETWORK_SUPPORTED,
   SELECTED_NETWORK_LOCAL_STORAGE_KEY,
   WALLET_CONNECTOR
@@ -12,7 +10,7 @@ import {
 import connectors from "../../../utils/connectors";
 import {useWeb3React} from "@web3-react/core";
 import {Web3ReactModal} from 'web3-react-modal';
-import {Link, useHistory, useLocation} from "react-router-dom"
+import {Link, matchPath, useHistory, useLocation} from "react-router-dom"
 import 'web3-react-modal/dist/index.css'
 import {DappType} from "../../../utils/types";
 import {shortenAddressString} from "../../../utils/helpers";
@@ -52,7 +50,7 @@ const Header = ({
   }, [activate])
 
   const menus = useMemo(() => {
-    const result: { name: string, path: string }[] = []
+    const result: { name: string, path: string, menuLink?: string }[] = []
     for (let i = 0; i < dapps.length; i++) {
       const children = dapps[i].configs.children;
       if (children) {
@@ -60,12 +58,14 @@ const Header = ({
           result.push({
             name: children[j].name,
             path: children[j].path,
+            menuLink: children[j].menuLink,
           })
         }
       } else {
         result.push({
           name: dapps[i].configs.name,
           path: dapps[i].configs.path,
+          menuLink: dapps[i].configs.menuLink,
         })
       }
     }
@@ -124,8 +124,10 @@ const Header = ({
             {
               menus.map((menu, key) => {
                 return <Link
-                  to={menu.path}
-                  className={`menu--item ${(location.pathname.includes(menu.path) || (location.pathname === '/' && key === 0)) && 'active'}`}
+                  to={menu.menuLink || menu.path}
+                  className={`menu--item ${(
+                    matchPath(location.pathname, {path: menu.path,exact: true,strict: false}) ||
+                    (location.pathname === '/' && key === 0)) && 'active'}`}
                 >{menu.name}</Link>
               })
             }
