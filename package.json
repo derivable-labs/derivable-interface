@@ -20,7 +20,7 @@
     "@web3-react/walletconnect-connector": "^6.2.4",
     "@web3-react/walletlink-connector": "^6.2.3",
     "crypto": "^1.0.1",
-    "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#d710ea7fa981bef152b1395935326c5ac749f946",
+    "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#5d8ca09a8d3c3eb99d7c6469b09c5517d97f4bff",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
@@ -38,7 +38,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "cp -r ./build/icons ./build/static ../derivable-io.github.io/docs/; cp build/index.html ../derivable-io.github.io/docs/exposure/; cp build/index.html ../derivable-io.github.io/docs/swap/"
+    "deploy": "cp -r ./build/icons ./build/static ../derivable-io.github.io/docs/; cp build/index.html ../derivable-io.github.io/docs/trade/"
   },
   "eslintConfig": {
     "extends": [
