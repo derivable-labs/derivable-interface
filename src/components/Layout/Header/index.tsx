@@ -127,7 +127,7 @@ const Header = ({
                   to={menu.menuLink || menu.path}
                   className={`menu--item ${(
                     matchPath(location.pathname, {path: menu.path,exact: true,strict: false}) ||
-                    (location.pathname === '/' && key === 0)) && 'active'}`}
+                    (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
                 >{menu.name}</Link>
               })
             }
