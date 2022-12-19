@@ -111,12 +111,12 @@ const Header = ({
 
   // @ts-ignore
   return (<header className='header'>
-      <Link to="/" className='logo-box'>
+      <a href="/" className='logo-box'>
         {
           width &&
           <img src={isPhone ? '/logo-white.png' : '/logo.png'} alt="" />
         }
-      </Link>
+      </a>
 
       {
         !isPhone ?
