@@ -6,7 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {ethers} from 'ethers';
 import {Web3ReactProvider} from '@web3-react/core';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import Dashboard from "./pages/Dashboard";
 
 window.Buffer = window.Buffer || Buffer;
 
@@ -23,17 +24,24 @@ root.render(
   <React.StrictMode>
     <Web3ReactProvider getLibrary={getLibrary}>
       <Router>
-        <App dapps={[
-          {
-            configs: require('exposure-comp/dist/configs'),
-            Component: React.lazy(() => {
-              // @ts-ignore
-              import('exposure-comp/dist/component.css');
-              return import('exposure-comp/dist/component');
-            })
-          },
-        ]}
-        />
+        <Switch>
+          <Route path='/' exact>
+            <Dashboard/>
+          </Route>
+          <Route>
+            <App dapps={[
+              {
+                configs: require('exposure-comp/dist/configs'),
+                Component: React.lazy(() => {
+                  // @ts-ignore
+                  import('exposure-comp/dist/component.css');
+                  return import('exposure-comp/dist/component');
+                })
+              },
+            ]}
+            />
+          </Route>
+        </Switch>
       </Router>
     </Web3ReactProvider>
   </React.StrictMode>

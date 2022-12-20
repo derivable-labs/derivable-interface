@@ -1,4 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, Suspense, useMemo, useState} from 'react';
 import {useLocation, useHistory, matchPath} from 'react-router-dom';
 import Layout from "./components/Layout";
 import './style/main.scss'
@@ -7,11 +7,12 @@ import {useWeb3React} from '@web3-react/core';
 import Header from "./components/Layout/Header";
 import {DappType} from "./utils/types";
 import {TermOfUsePopup} from "./components/TermOfUsePopup";
+import Dashboard from "./pages/Dashboard";
 
 function App({ dapps }: {
   dapps: DappType[]
 }) {
-  const {library} = useWeb3React()
+  const { library } = useWeb3React()
   const location = useLocation()
   const [visibleConnectModal, setVisibleConnectModal] = useState<any>();
 
@@ -31,6 +32,7 @@ function App({ dapps }: {
 
     return dapps[0].Component
   }, [location.pathname])
+  console.log('appp')
 
   return (
     <Layout>
@@ -39,21 +41,23 @@ function App({ dapps }: {
         visibleConnectModal={visibleConnectModal}
         setVisibleConnectModal={setVisibleConnectModal}
       />
-      <Component
-        chainId={56}
-        // @ts-ignore
-        env={process.env.REACT_APP_NODE_ENV || 'production'}
-        useLocation={useLocation}
-        useWeb3React={useWeb3React}
-        useSubPage={() => location.pathname}
-        useHistory={useHistory}
-        language={'en'}
-        //@ts-ignore
-        showConnectWalletModal={() => {
-          setVisibleConnectModal(true)
-        }}
-      />
-      <TermOfUsePopup/>
+      <Suspense>
+        <Component
+          chainId={56}
+          // @ts-ignore
+          env={process.env.REACT_APP_NODE_ENV || 'production'}
+          useLocation={useLocation}
+          useWeb3React={useWeb3React}
+          useSubPage={() => location.pathname}
+          useHistory={useHistory}
+          language={'en'}
+          //@ts-ignore
+          showConnectWalletModal={() => {
+            setVisibleConnectModal(true)
+          }}
+        />
+      </Suspense>
+      <TermOfUsePopup />
     </Layout>
   );
 }

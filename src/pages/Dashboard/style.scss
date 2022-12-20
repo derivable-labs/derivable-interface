@@ -1,0 +1,654 @@
+@import "../../style/abstracts/variables";
+@import "../../style/abstracts/mixins";
+
+.landing-page {
+  background: $color-background;
+
+  .head {
+    background: url("../../assets/images/dashboard/bg1.png");
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+    background-size: cover;
+    background-position: right;
+
+    @include respond(phone) {
+      height: 250px;
+      background: url("../../assets/images/dashboard/bg1_mobile.png");
+      background-size: cover;
+      background-position: right;
+    }
+
+    &__content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+    }
+
+    &__typo {
+      max-width: 80%;
+      margin-bottom: 5rem;
+      @include respond(phone) {
+        max-width: 50%;
+      }
+    }
+
+    &__title {
+      color: white;
+      font-size: 4.6rem;
+      width: 700px;
+      max-width: 100%;
+      padding: 0 2rem;
+      margin: auto;
+      font-weight: 700;
+
+      @include respond(phone) {
+        font-size: 20px;
+      }
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: -95px;
+      left: 0;
+      width: 104%;
+      height: 30%;
+      background: #02050A;
+      filter: blur(43px);
+
+      @include respond(phone) {
+        bottom: -30px;
+        filter: blur(21px);
+      }
+    }
+  }
+
+  .content {
+    //background: url("../../assets/images/dashboard/bg2.png");
+    background-size: cover;
+
+    @include respond(phone) {
+      //background: url("../../assets/images/dashboard/bg2_mobile.png");
+      background-size: cover;
+    }
+  }
+
+  .protocol {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 15rem;
+
+    @include respond(phone) {
+      margin-bottom: 10rem;
+    }
+
+    &__top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      //margin-bottom: 2rem;
+    }
+
+    &__des {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 2rem;
+      text-align: center;
+      max-width: 71rem;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .diagram-1 {
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 6rem;
+      text-align: center;
+
+      img {
+        max-width: 80%;
+        max-height: 500px;
+      }
+    }
+  }
+
+  .tdm {
+    margin-bottom: 15rem;
+    @include respond(phone) {
+      margin-bottom: 10rem;
+    }
+    &__diagram {
+      max-width: 1200px;
+      margin: auto;
+      margin-top: 3rem;
+      text-align: center;
+
+      img {
+        max-width: 80%;
+      }
+    }
+  }
+
+  .description {
+    & .title {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 3.2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 0 2rem;
+
+      @include respond(phone) {
+        font-size: 20px;
+      }
+    }
+
+    & .des {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 6rem;
+      padding: 0 2rem;
+
+      @include respond(phone) {
+        margin-bottom: 4rem;
+        font-size: 16px;
+      }
+    }
+
+    &-1 {
+      margin-top: 6rem;
+      margin-bottom: 15rem;
+
+      @include respond(phone) {
+        margin-bottom: 10rem;
+      }
+
+      & .diagram {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 6rem;
+        padding: 0 2rem;
+
+        @include respond(phone) {
+          margin-bottom: 5rem;
+        }
+
+        button {
+          font-family: 'Space Grotesk';
+          background: #FFFFFF;
+          box-shadow: 0px 3.00353px 10.5123px rgba(0, 0, 0, 0.08);
+          border-radius: 7.76964px;
+          padding: 1.5rem 2rem;
+          color: #000;
+          font-size: 1.8rem;
+          font-weight: 500;
+          border: none;
+        }
+
+        .swap-icon {
+          position: relative;
+          height: 2px;
+          width: 3rem;
+          background: white;
+          display: block;
+          margin-left: 4px;
+          margin-right: 4px;
+
+          &::before, &::after {
+            content: "";
+            position: absolute;
+            width: 1rem;
+            height: 1rem;
+          }
+
+          &::before {
+            left: -4px;
+            top: calc(50% - 1px);
+            transform: rotate(45deg) translateY(-50%);
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+          }
+
+          &::after {
+            right: 2px;
+            top: calc(50% - 1px);
+            border-right: 2px solid white;
+            border-top: 2px solid white;
+            transform: rotate(45deg) translateY(-50%);
+          }
+        }
+      }
+
+      .diagram-1 {
+        display: block;
+        margin: auto;
+        max-width: 350px;
+        @include respond(phone) {
+          max-width: 50%;
+        }
+
+      }
+    }
+
+    &-2 {
+      margin-bottom: 15rem;
+
+      @include respond(phone) {
+        margin-bottom: 10rem;
+      }
+
+      .diagram-2 {
+        display: block;
+        margin: auto;
+        max-width: 80%;
+      }
+    }
+
+    &-3 {
+      margin-bottom: 15rem;
+
+      @include respond(phone) {
+        margin-bottom: 10rem;
+      }
+
+      .diagram-3 {
+        margin-top: 10rem;
+        display: block;
+        margin: auto;
+        max-width: 80%;
+      }
+    }
+  }
+
+  .features {
+    padding-bottom: 10rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    &__title {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 3.2rem;
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    &__items {
+      max-width: 1370px;
+      display: grid;
+      margin: auto;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      @include respond(tablet) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include respond(phone) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__item {
+      background: #191818;
+      border-radius: 16px;
+      margin: 1rem;
+      padding: 4rem;
+      box-sizing: border-box;
+      min-height: 20rem;
+
+      &--head {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+
+      &--logo {
+        width: 5rem;
+      }
+
+      &--title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-left: 1.5rem;
+      }
+
+      &--des {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: #FFFFFF;
+      }
+    }
+  }
+}
+
+
+.section-header {
+  display: flex;
+  justify-content: center;
+
+  &-item {
+    font-family: 'Space Grotesk';
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: white;
+    text-align: left;
+    margin-bottom: 1rem;
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    @include respond(phone) {
+      font-size: 20px;
+    }
+  }
+
+  &-item::first-letter {
+    color: $color-primary !important;
+  }
+
+}
+
+.footer {
+  max-width: 1370px;
+  display: flex;
+  margin: auto;
+  padding: 10rem 2rem;
+
+  @include respond(phone) {
+    padding: 5rem 2rem;
+    display: block;
+  }
+
+  &-box {
+    background: url("../../assets/images/bg_footer.png");
+    background-size: cover;
+  }
+
+  &__left {
+    width: 500px;
+    max-width: 100%;
+    img {
+      margin-bottom: 1.5rem;
+    }
+    &--description {
+      font-size: 1.6rem;
+    }
+  }
+
+  &__right {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond(phone) {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+      & > *:last-child {
+        grid-column: 1/ span 3;
+      }
+    }
+
+    &--col {
+      .title {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 1.4rem;
+        color: $color-text-secondary;
+        margin-bottom: 2rem;
+      }
+
+      @include respond(phone) {
+        &:last-child {
+          margin-top: 4rem;
+        }
+      }
+
+      .subscribe-box {
+        @include respond(phone) {
+          display: flex;
+          justify-content: space-between;
+          & > * {
+            width: 48%;
+            height: 100%;
+          }
+        }
+      }
+
+      .name-input {
+        padding: 1rem;
+        border-radius: 5px;
+        color: #000;
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        border: none;
+
+        &::placeholder {
+          color: #71717A
+        }
+      }
+
+      .btn-subscribe {
+        color: white;
+        background: #01A7FA;
+        border-radius: 5px;
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        display: block;
+        border: none;
+      }
+    }
+  }
+
+  & .links {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      padding: 0.5rem 0;
+      font-size: 1.4rem;
+      text-decoration: none;
+    }
+  }
+}
+
+.dashboard-header {
+  display: flex;
+  height: 80px;
+  padding: 20px 50px 20px 15rem;
+  align-items: center;
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  @include respond(phone) {
+    position: relative;
+    background: linear-gradient(45deg, #143459, #06274e);
+    padding: 2rem;
+  }
+
+
+  .logo-box {
+    text-align: right;
+  }
+
+  .menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    &--item {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 19px;
+      display: block;
+      text-align: center;
+      padding: 1rem 3rem;
+    }
+  }
+}
+
+.navigation {
+  &__checkbox {
+    display: none;
+  }
+
+  &__button {
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center;
+    top: 0rem;
+    right: 0rem;
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-image: radial-gradient(black, #05264E);
+    z-index: 1000;
+    transform: scale(0);
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
+
+    opacity: 0;
+    width: 0;
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all .25s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
+    }
+  }
+
+
+  //FUNCTIONALITY
+  &__checkbox:checked ~ &__background {
+    opacity: 1;
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+
+
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 50%;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: white;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s;
+    }
+
+    &::before {
+      top: -.8rem;
+    }
+
+    &::after {
+      top: .8rem;
+    }
+  }
+
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
