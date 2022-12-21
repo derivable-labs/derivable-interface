@@ -361,7 +361,7 @@
   }
 
   &-item::first-letter {
-    color: $color-primary !important;
+    color: $color-orange-1 !important;
   }
 
 }
@@ -465,6 +465,7 @@
     flex-direction: column;
 
     & > * {
+      color: white;
       padding: 0.5rem 0;
       font-size: 1.4rem;
       text-decoration: none;

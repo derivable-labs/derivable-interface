@@ -1,5 +1,31 @@
 /* cyrillic-ext */
 @font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../../assets/fonts/SpaceGrotesk-Light.ttf');
+
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/fonts/SpaceGrotesk-Regular.ttf');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../assets/fonts/SpaceGrotesk-Medium.ttf');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../assets/fonts/SpaceGrotesk-Bold.ttf');
+}
+
+@font-face {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 300;
@@ -18,12 +44,12 @@
   font-weight: 500;
   src: url('../../assets/fonts/Inter-Medium.ttf');
 }
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../../assets/fonts/Inter-Bold.ttf');
-}
+//@font-face {
+//  font-family: 'Inter';
+//  font-style: normal;
+//  font-weight: 700;
+//  src: url('../../assets/fonts/Inter-Bold.ttf');
+//}
 
 @font-face {
   font-family: 'Inter';
