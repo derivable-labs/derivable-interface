@@ -4,18 +4,21 @@
 .header {
   display: flex;
   height: 80px;
-  padding: 20px 50px 20px 15rem;
+  //padding: 20px 15rem 20px 15rem;
+  width: 1400px;
+  max-width: calc(100vw - 6rem);
+  margin: 0 auto;
   align-items: center;
   z-index: 1000;
   top: 0;
   left: 0;
-  width: 100%;
   justify-content: space-between;
 
   @include respond(phone) {
     position: relative;
     background: linear-gradient(45deg, #143459, #06274e);
-    padding: 2rem;
+    padding: 2rem 0 2rem 2rem;
+    max-width: 100%;
   }
 
 
@@ -86,7 +89,7 @@
     }
   }
 
-  .network {
+  .network, .dapp-menu {
     &-select {
       position: relative;
     }
@@ -154,23 +157,57 @@
       display: inline-flex;
     }
   }
+
+  .dapp-menu {
+
+    &-select {
+      @include respond(phone) {
+        margin-right: 0;
+      }
+    }
+
+    &-button {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-items {
+      @include respond(phone) {
+        top: 6rem;
+      }
+    }
+
+    &-item {
+      text-decoration: none;
+      //color: white;
+      font-size: 1.6rem;
+    }
+  }
 }
 
 .navigation {
+  width: 60px;
+  height: 80px;
+  position: relative;
+
   &__checkbox {
     display: none;
   }
 
   &__button {
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     position: absolute;
     border-radius: 50%;
     z-index: 2000;
     box-shadow: 0 1rem 3rem rgba($color-black, .1);
     text-align: center;
-    top: 0rem;
-    right: 0rem;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
   }
 
   &__background {

@@ -1,4 +1,4 @@
-import React, {useEffect, Suspense, useMemo, useState} from 'react';
+import React, {Suspense, useMemo, useState} from 'react';
 import {useLocation, useHistory, matchPath} from 'react-router-dom';
 import Layout from "./components/Layout";
 import './style/main.scss'
@@ -7,7 +7,7 @@ import {useWeb3React} from '@web3-react/core';
 import Header from "./components/Layout/Header";
 import {DappType} from "./utils/types";
 import {TermOfUsePopup} from "./components/TermOfUsePopup";
-import Dashboard from "./pages/Dashboard";
+import {ToastContainer} from "react-toastify";
 
 function App({ dapps }: {
   dapps: DappType[]
@@ -32,7 +32,6 @@ function App({ dapps }: {
 
     return dapps[0].Component
   }, [location.pathname])
-  console.log('appp')
 
   return (
     <Layout>
@@ -58,6 +57,14 @@ function App({ dapps }: {
         />
       </Suspense>
       <TermOfUsePopup />
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        rtl={false}
+        closeOnClick={false}
+        draggable
+        theme='dark'
+      />
     </Layout>
   );
 }
