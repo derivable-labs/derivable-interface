@@ -15,29 +15,45 @@
     "@types/react-router-dom": "^5.3.3",
     "@web3-react/authereum-connector": "^6.2.0",
     "@web3-react/core": "^6.1.9",
+    "@web3-react/fortmatic-connector": "^6.1.6",
+    "@web3-react/frame-connector": "^6.0.9",
     "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/ledger-connector": "^6.1.9",
+    "@web3-react/magic-connector": "^6.1.9",
     "@web3-react/network-connector": "^6.1.9",
+    "@web3-react/portis-connector": "^6.2.11",
+    "@web3-react/torus-connector": "^6.2.9",
     "@web3-react/walletconnect-connector": "^6.2.4",
     "@web3-react/walletlink-connector": "^6.2.3",
+    "assert": "^2.0.0",
+    "buffer": "^6.0.3",
     "crypto": "^1.0.1",
+    "crypto-browserify": "^3.12.0",
+    "crypto-js": "3.1.9-1",
     "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#179b792c5cc41abcfa38aec87d8cff89f867b521",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "process": "^0.11.10",
     "react": "^18.2.0",
+    "react-app-rewire-provide-plugin": "^1.0.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "sass": "^1.55.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
     "typescript": "^4.8.4",
     "url": "^0.11.0",
     "web-vitals": "^2.1.4",
     "web3-react-modal": "https://github.com/launchzone/web3-react-modal.git#main"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
     "deploy": "cp -r ./build/icons ./build/static ../derivable-io.github.io/docs/; cp build/index.html ../derivable-io.github.io/docs/trade/; cp build/index.html ../derivable-io.github.io/docs/trade/exposure/; cp build/index.html ../derivable-io.github.io/docs/trade/swap/; cp build/index.html ../derivable-io.github.io/docs/pools/; cp build/index.html ../derivable-io.github.io/docs/exposure/; cp build/index.html ../derivable-io.github.io/docs/swap/;"
   },
   "eslintConfig": {
@@ -57,5 +73,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-app-rewired": "^2.2.1"
+  },
+  "browser": {
+    "assert": false
   }
 }
