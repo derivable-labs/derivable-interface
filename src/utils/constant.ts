@@ -4,13 +4,16 @@ export const DEFAULT_APP_PATH = '/';
 export const THEME_SUPPORTED = ['light', 'dark']
 export const SELECTED_NETWORK_LOCAL_STORAGE_KEY = 'selected_network'
 
+export const ARBITRUM_NETWORK = 31337
 export const LOCAL_NETWORK = 31337
 export const BSC_NETWORK = 56
 export const BSC_TESTNET_NETWORK = 97
 
+export const DEFAULT_CHAIN = BSC_NETWORK
+
 export const CHAINS = {
-  [LOCAL_NETWORK]: 'Local network',
   [BSC_NETWORK]: 'BSC',
+  [LOCAL_NETWORK]: 'Local network',
   [BSC_TESTNET_NETWORK]: 'BSC test'
 }
 

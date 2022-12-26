@@ -9,19 +9,20 @@ import { FortmaticConnector } from '@web3-react/fortmatic-connector';
 import { MagicConnector } from '@web3-react/magic-connector';
 import { PortisConnector } from '@web3-react/portis-connector';
 import { LedgerConnector } from '@web3-react/ledger-connector';
+import {ARBITRUM_NETWORK, BSC_NETWORK, BSC_TESTNET_NETWORK, CHAINS, DEFAULT_CHAIN, LOCAL_NETWORK} from "./constant";
 
 const LEDGE_POLLING_INTERVAL = 12000;
 
 const RPC_URLS: { [chainId: number]: string } = {
-    56: 'https://bsc-dataseed.binance.org/' as string,
-    42161: 'https://arb1.arbitrum.io/rpc' as string,
-    31337: 'http://localhost:8545/' as string,
-    97: 'https://data-seed-prebsc-1-s1.binance.org:8545/' as string
+  [BSC_NETWORK]: 'https://bsc-dataseed.binance.org/' as string,
+  [ARBITRUM_NETWORK]: 'https://arb1.arbitrum.io/rpc' as string,
+  [LOCAL_NETWORK]: 'http://localhost:8545/' as string,
+  [BSC_TESTNET_NETWORK]: 'https://data-seed-prebsc-1-s1.binance.org:8545/' as string
 }
 
 const injected = {
     connector: new InjectedConnector({
-        supportedChainIds: [42161, 56, 31337, 1337, 97]
+        supportedChainIds: Object.keys(CHAINS).map(e => Number(e))
     }),
     image: '/images/metamask.svg',
     title: 'Metamask',
@@ -30,12 +31,8 @@ const injected = {
 
 const network = {
     connector: new NetworkConnector({
-        urls: {
-          42161: RPC_URLS[42161],
-          56:  RPC_URLS[56],
-          97:  RPC_URLS[97]
-        },
-        defaultChainId: 56
+        urls: RPC_URLS,
+        defaultChainId: DEFAULT_CHAIN
     }),
     image: '/images/walletconnect.svg',
     title: 'WalletConnect',
@@ -44,12 +41,7 @@ const network = {
 
 const walletconnect = {
     connector: new WalletConnectConnector({
-        rpc: {
-          56: RPC_URLS[56],
-          42161: RPC_URLS[42161],
-          31337: RPC_URLS[31337],
-          97: RPC_URLS[97]
-        },
+        rpc: RPC_URLS,
         qrcode: true,
     }),
     image: '/images/walletconnect.svg',
@@ -59,9 +51,9 @@ const walletconnect = {
 
 const walletlink = {
     connector: new WalletLinkConnector({
-        url: RPC_URLS[42161],
+        url: RPC_URLS[DEFAULT_CHAIN],
         appName: 'web3-react example',
-        supportedChainIds: [42161, 56, 97]
+        supportedChainIds: Object.keys(CHAINS).map(e => Number(e))
     }),
     image: '/images/coinbase.svg',
     title: 'Coinbase',
@@ -70,14 +62,14 @@ const walletlink = {
 
 
 const authereum = {
-  connector: new AuthereumConnector({ chainId: 56 }),
+  connector: new AuthereumConnector({ chainId: DEFAULT_CHAIN }),
   image: '/images/authereum.svg',
   title: 'Authereum',
   desc: 'Connect with your Authereum account'
 }
 
 const torus = {
-  connector: new TorusConnector({ chainId: 56 }),
+  connector: new TorusConnector({ chainId: DEFAULT_CHAIN }),
   image: '/images/torus.svg',
   title: 'Torus',
   desc: 'Connect with your Torus account'
@@ -114,8 +106,8 @@ const portis = {
 
 const ledger = {
   connector: new LedgerConnector({
-    chainId: 56,
-    url: RPC_URLS[56],
+    chainId: DEFAULT_CHAIN,
+    url: RPC_URLS[DEFAULT_CHAIN],
     pollingInterval: LEDGE_POLLING_INTERVAL,
   }),
   image: '/images/ledger.svg',
