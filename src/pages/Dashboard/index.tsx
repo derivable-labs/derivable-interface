@@ -53,7 +53,8 @@ const menus = [
   },
   {
     name: 'Docs',
-    href: 'https://docs.derivable.io'
+    href: 'https://docs.derivable.io',
+    target: '_black'
   },
 ]
 
@@ -179,9 +180,16 @@ const Header = (props: any) => {
                 {
                   menus.map((menu) => {
                     return <li className="navigation__item">
-                      <Link to={menu.href} className="navigation__link">
-                        {menu.name}
-                      </Link>
+                      {
+                        menu.target ?
+                          <a href={menu.href} className="navigation__link" target={menu.target}>
+                            {menu.name}
+                          </a>
+                          :
+                          <Link to={menu.href} className="navigation__link">
+                            {menu.name}
+                          </Link>
+                      }
                     </li>
                   })
                 }
@@ -192,6 +200,11 @@ const Header = (props: any) => {
           <div className='menu'>
             {
               menus.map((menu) => {
+                if(menu.target) {
+                  return <a href={menu.href} className="menu--item" target={menu.target}>
+                    {menu.name}
+                  </a>
+                }
                 return <Link to={menu.href} className='menu--item'>{menu.name}</Link>
               })
             }
