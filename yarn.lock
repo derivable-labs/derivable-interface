@@ -6919,6 +6919,17 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
+"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#3e99fb5ae3a14abff02bfc4a7a032c6910e1c422":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#3e99fb5ae3a14abff02bfc4a7a032c6910e1c422"
+  dependencies:
+    assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
+    ethereum-multicall "^2.15.0"
+    ethers "^5.5.4"
+    lodash "^4.17.21"
+    node-fetch "^2.6.7"
+    powerLib "git+ssh://git@github.com:derivable-io/power-lib.git#502f7724fe3f25676f48e4107a0c7da705e25d7f"
+
 des.js@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/des.js/-/des.js-1.0.1.tgz#5382142e1bdc53f85d86d53e5f4aa7deb91e0843"
@@ -8412,7 +8423,7 @@ ethers@4.0.47:
     uuid "2.0.1"
     xmlhttprequest "1.8.0"
 
-ethers@^5.0.15, ethers@^5.4.6, ethers@^5.5.3:
+ethers@^5.0.15, ethers@^5.4.6, ethers@^5.5.3, ethers@^5.5.4:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.7.2.tgz#3a7deeabbb8c030d4126b24f84e525466145872e"
   integrity sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==
@@ -8587,9 +8598,9 @@ expect@^29.0.0:
     jest-message-util "^29.1.2"
     jest-util "^29.1.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#116e9571de5086e2b2693298c09e6f9f65781312":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#47a154ba97ed3df04bf9a96d349c4ac7b2faff3f":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#116e9571de5086e2b2693298c09e6f9f65781312"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#47a154ba97ed3df04bf9a96d349c4ac7b2faff3f"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -8598,6 +8609,7 @@ expect@^29.0.0:
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
     caniuse-lite "^1.0.30001434"
+    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#3e99fb5ae3a14abff02bfc4a7a032c6910e1c422"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
@@ -8606,6 +8618,7 @@ expect@^29.0.0:
     moment "^2.29.4"
     rc-slider "^10.0.1"
     react-collapse "^5.1.1"
+    react-fast-compare "^3.2.0"
     react-redux "^7.2.5"
     react-router-dom "^5.2.0"
     react-tabs "^6.0.0"
@@ -8615,6 +8628,7 @@ expect@^29.0.0:
     redux "^4.1.1"
     redux-localstorage-simple "^2.4.1"
     redux-thunk "^2.3.0"
+    swr "^2.0.0"
 
 express@^4.14.0, express@^4.17.3:
   version "4.18.2"
@@ -13637,6 +13651,13 @@ postcss@^8.3.5, postcss@^8.4.14, postcss@^8.4.4, postcss@^8.4.7:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+"powerLib@git+ssh://git@github.com:derivable-io/power-lib.git#502f7724fe3f25676f48e4107a0c7da705e25d7f":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com:derivable-io/power-lib.git#502f7724fe3f25676f48e4107a0c7da705e25d7f"
+  dependencies:
+    ethers "^5.4.6"
+    lodash "^4.17.21"
+
 preact@10.4.1:
   version "10.4.1"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.1.tgz#9b3ba020547673a231c6cf16f0fbaef0e8863431"
@@ -14123,7 +14144,7 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
-react-fast-compare@^3.0.1:
+react-fast-compare@^3.0.1, react-fast-compare@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
@@ -15992,6 +16013,13 @@ swarm-js@^0.1.40:
     tar "^4.0.2"
     xhr-request "^1.0.1"
 
+swr@^2.0.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-2.0.3.tgz#9fe59a17f55b0fdddccd76b7b2f723f9f8e2263e"
+  integrity sha512-sGvQDok/AHEWTPfhUWXEHBVEXmgGnuahyhmRQbjl9XBYxT/MSlAzvXEKQpyM++bMPaI52vcWS2HiKNaW7+9OFw==
+  dependencies:
+    use-sync-external-store "^1.2.0"
+
 symbol-tree@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
@@ -16675,6 +16703,11 @@ usb@^1.6.0:
   dependencies:
     node-addon-api "^4.2.0"
     node-gyp-build "^4.3.0"
+
+use-sync-external-store@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
+  integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
 
 use@^3.1.0:
   version "3.1.1"

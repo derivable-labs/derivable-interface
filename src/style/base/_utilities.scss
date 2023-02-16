@@ -24,6 +24,12 @@ body {
   &-primary {
     color: $color-primary !important;
   }
+  &-light-blue {
+    color: $color-light-blue;
+  }
+  &-yellow {
+    color: $color-yellow !important;
+  }
 }
 
 .text-justice {
