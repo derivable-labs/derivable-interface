@@ -207,7 +207,7 @@ const Header = ({
                   </Link>
                 </Menu.Item>
                 <Menu.Item key={1}>
-                  <a href='https://docs.derivable.io' className="dapp-menu-item">
+                  <a href='https://docs.derivable.finance' className="dapp-menu-item">
                     Docs
                   </a>
                 </Menu.Item>

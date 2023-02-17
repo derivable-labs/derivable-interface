@@ -53,7 +53,7 @@ const menus = [
   },
   {
     name: 'Docs',
-    href: 'https://docs.derivable.io',
+    href: 'https://docs.derivable.finance',
     target: '_black'
   },
 ]
