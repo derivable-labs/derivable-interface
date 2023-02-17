@@ -259,8 +259,8 @@ const Dashboard = () => {
             </h3>
             <div className='section__content'>
             <iframe
-              src="https://www.youtube.com/embed/wQno6mHXDzM?rel=0"
-              title="Derivable Demo"
+              src="https://www.youtube.com/embed/0U1kCfnYalI?rel=0"
+              title="Derivable: Trading Guide"
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             />
