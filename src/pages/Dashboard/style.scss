@@ -107,7 +107,7 @@
       padding: 0 2rem;
       font-weight: 500;
       text-align: center;
-      margin: 10rem auto 0 auto;
+      margin: 5rem auto 0 auto;
 
       & * {
         color: $color-light-blue;
@@ -116,6 +116,7 @@
 
       @include respond(phone) {
         font-size: 20px;
+        margin: 10rem auto 0 auto;
       }
     }
 
@@ -148,6 +149,7 @@
     margin-bottom: 20rem;
 
     &__title {
+      color: #8AC9F9;
       text-align: center;
       font-size: 3.6rem;
       font-weight: 700;
@@ -174,11 +176,10 @@
         width: 500px;
       }
 
-      @include respond(phone) {
-        iframe {
-          width: 90vw;
-          height: 70vw;
-        }
+      iframe {
+        border: 0px;
+        width: 90vw;
+        height: 45vw;
       }
     }
   }
@@ -189,6 +190,7 @@
     padding-right: 2rem;
 
     &__title {
+      color: #8AC9F9;
       font-family: 'Space Grotesk';
       font-style: normal;
       font-weight: 700;
@@ -289,7 +291,7 @@
 
     &__img {
       position: absolute;
-      transform: translate(-50%, -50%);
+      transform: translate(-56.8%, -44.5%);
       top: 50%;
       left: 50%;
     }
