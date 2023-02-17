@@ -64,6 +64,8 @@ const Dashboard = () => {
   const [itemActive1, setItemAction1] = useState(0)
   const [itemActive2, setItemAction2] = useState(0)
 
+  const { width } = useWindowSize()
+  const isPhone = width && width < 768
 
   useEffect(() => {
     setTimeout(() => {
@@ -245,8 +247,12 @@ const Dashboard = () => {
           </div>
         </div>
         <p className='head__title text-light-blue'>
-          <div>TRADE, HODL, and CREATE <span className='text-yellow'>leveraged tokens.</span></div>
-          <div>With no risk of liquidation.</div>
+          <div>
+            Create, HODL, and Trade
+            {isPhone && <br/>}
+            <span className='text-yellow'> LEVERAGED TOKENS </span>
+          </div>
+          <div>with no risk of liquidation</div>
         </p>
 
         <div className="overlay" />
