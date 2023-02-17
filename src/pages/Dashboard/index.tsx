@@ -415,7 +415,9 @@ const Header = (props: any) => {
             <nav className="navigation__nav">
               <ul className="navigation__list">
                 {
-                  menus.map((menu) => {
+                  menus
+                  .filter(menu => menu.href != '/')
+                  .map((menu) => {
                     return <li className="navigation__item">
                       {
                         menu.target ?

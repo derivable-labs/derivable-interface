@@ -36,7 +36,7 @@
         justify-items: center;
         flex-direction: column;
         align-items: center;
-        margin: 10rem auto 0 auto;
+        margin: 16rem auto 0 auto;
       }
 
       &--right {
@@ -502,8 +502,7 @@
   width: 100%;
 
   @include respond(phone) {
-    position: relative;
-    background: linear-gradient(45deg, #143459, #06274e);
+    position: absolute;
     padding: 2rem;
   }
 
