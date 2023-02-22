@@ -15,6 +15,7 @@ jobs:
     env:
       CI: false
       TELE_CHAT_ID: "-804821265"
+      TELEGRAM_TECH_TOKEN: "6095837159:AAFtCWXALhm6DTANMjcLhWdSf8ntqfwieak"
 
     steps:
       - name: Checkout
@@ -23,11 +24,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-
-      - name: Set ssh agent
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Setup yarn
         run: npm install -g yarn
@@ -63,7 +59,7 @@ jobs:
         uses: appleboy/telegram-action@master
         with:
           to: ${{ env.TELE_CHAT_ID }}
-          token: ${{ secrets.TELEGRAM_TECH_TOKEN }}
+          token: ${{ env.TELEGRAM_TECH_TOKEN }}
           message: "${{ env.TXT_DETAIL }}\n${{ env.TXT_BRANCH }}\n${{ env.TXT_COMMIT }}\n${{ env.TXT_COMMIT_MSG }}\n${{ env.TXT_PUSHER }}\n${{ env.TXT_DOMAIN }}"
         env:
           TXT_DETAIL: "⭐⭐⭐ Deploy Sympathy interface successful ⭐⭐⭐"
