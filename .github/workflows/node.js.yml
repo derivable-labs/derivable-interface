@@ -1,0 +1,74 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "cicd" ]
+  pull_request:
+    branches: [ "cicd" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: false
+      TELE_CHAT_ID: "-804821265"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Set ssh agent
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile || { exit 1;}
+
+      - name: Build
+        run: |
+          yarn build || { exit 1;}
+
+      - name: Get commit branch and commit message
+        run: |
+          echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
+          if  [[ '${{ github.event_name }}' == 'push' ]]; then
+            echo "COMMIT_BRANCH=$(echo ${GITHUB_REF##*/})" >> $GITHUB_ENV
+            echo "COMMIT_MESSAGE<<EOF" >> $GITHUB_ENV
+            echo "$(git log --format=%B -n 1 HEAD)" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+          elif [[ '${{ github.event_name }}' == 'pull_request' ]]; then
+            echo "COMMIT_BRANCH=$GITHUB_HEAD_REF" >> $GITHUB_ENV
+            echo "COMMIT_MESSAGE<<EOF" >> $GITHUB_ENV
+            echo "$(git log --format=%B -n 1 HEAD^2)" >> $GITHUB_ENV
+            echo "EOF" >> $GITHUB_ENV
+          fi
+
+#      - name: deploy
+#        run: |
+#          ls -a build
+#          rsync -e "ssh -o StrictHostKeyChecking=no" -avz --no-perms --no-owner --no-group build/ root@${DEPLOY_HOST}:${DEPLOY_PATH}/${DOMAIN}
+
+      - name: Send telegram message on completed
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ env.TELE_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_TECH_TOKEN }}
+          message: "${{ env.TXT_DETAIL }}\n${{ env.TXT_BRANCH }}\n${{ env.TXT_COMMIT }}\n${{ env.TXT_COMMIT_MSG }}\n${{ env.TXT_PUSHER }}\n${{ env.TXT_DOMAIN }}"
+        env:
+          TXT_DETAIL: "⭐⭐⭐ Deploy Sympathy interface successful ⭐⭐⭐"
+          TXT_BRANCH: "Branch: ${{ env.COMMIT_BRANCH }}"
+          TXT_COMMIT: "Commit: ${{ env.SHORT_SHA }}"
+          TXT_COMMIT_MSG: "Message: ${{ env.COMMIT_MESSAGE }}"
+          TXT_PUSHER: "Pusher: ${{ github.event.pusher.name }}"
+          TXT_DOMAIN: "Domain: ${{ env.DOMAIN }}"
