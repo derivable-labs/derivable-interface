@@ -14,6 +14,7 @@ function App({ dapps }: {
 }) {
   const { library } = useWeb3React()
   const location = useLocation()
+  const [chainIdDisplay, setChainIdDisplay] = useState<any>(56)
   const [visibleConnectModal, setVisibleConnectModal] = useState<any>();
 
   const Component = useMemo(() => {
@@ -39,10 +40,12 @@ function App({ dapps }: {
         dapps={dapps}
         visibleConnectModal={visibleConnectModal}
         setVisibleConnectModal={setVisibleConnectModal}
+        setChainIdDisplay={setChainIdDisplay}
+        chainIdDisplay={chainIdDisplay}
       />
       <Suspense>
         <Component
-          chainId={56}
+          chainId={chainIdDisplay}
           // @ts-ignore
           env={process.env.REACT_APP_NODE_ENV || 'production'}
           useLocation={useLocation}

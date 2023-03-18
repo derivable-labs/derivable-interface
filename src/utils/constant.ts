@@ -4,7 +4,7 @@ export const DEFAULT_APP_PATH = '/';
 export const THEME_SUPPORTED = ['light', 'dark']
 export const SELECTED_NETWORK_LOCAL_STORAGE_KEY = 'selected_network'
 
-export const ARBITRUM_NETWORK = 31337
+export const ARBITRUM_NETWORK = 42161
 export const LOCAL_NETWORK = 31337
 export const BSC_NETWORK = 56
 export const BSC_TESTNET_NETWORK = 97
@@ -12,6 +12,7 @@ export const BSC_TESTNET_NETWORK = 97
 export const DEFAULT_CHAIN = BSC_NETWORK
 
 export const CHAINS = {
+  [ARBITRUM_NETWORK]: 'Arbitrum',
   [BSC_NETWORK]: 'BSC',
   [LOCAL_NETWORK]: 'Local network',
   [BSC_TESTNET_NETWORK]: 'BSC test'
@@ -62,6 +63,14 @@ export const NETWORK_SUPPORTED = {
     logo: '56.svg',
     explorer: "https://bscscan.com/",
     nativeTokenSymbol: 'BNB'
+  },
+  [ARBITRUM_NETWORK]: {
+    chainId: ARBITRUM_NETWORK,
+    name: 'Arbitrum',
+    fullname: 'Arbitrum',
+    logo: '42161.svg',
+    explorer: "https://arbiscan.io/",
+    nativeTokenSymbol: 'ETH'
   },
   [BSC_TESTNET_NETWORK]: {
     chainId: BSC_TESTNET_NETWORK,

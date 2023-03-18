@@ -2,7 +2,7 @@ import React, {useMemo, useState, useEffect, Fragment} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {
-  CHAINS,
+  CHAINS, DEFAULT_CHAIN,
   NETWORK_METADATA, NETWORK_SUPPORTED,
   SELECTED_NETWORK_LOCAL_STORAGE_KEY,
   WALLET_CONNECTOR
@@ -21,11 +21,15 @@ import {Menu} from "@headlessui/react";
 const Header = ({
                   dapps,
                   visibleConnectModal,
-                  setVisibleConnectModal
+                  setVisibleConnectModal,
+                  setChainIdDisplay,
+                  chainIdDisplay
                 }: {
   visibleConnectModal: boolean,
   setVisibleConnectModal: any,
-  dapps: DappType[]
+  dapps: DappType[],
+  setChainIdDisplay: any,
+  chainIdDisplay: number
 }) => {
   const { account, active, chainId } = useWeb3React()
   const location = useLocation()
@@ -47,6 +51,24 @@ const Header = ({
       }
     }
   }, [activate])
+
+  useEffect(() => {
+    const searchString = window.location.hash.split('?').length === 2 ? window.location.hash.split('?')[1] : ''
+    const chainIdInUrl = new URLSearchParams('?' + searchString).get('chainId') || ''
+    const chainIdInStore = localStorage.getItem('chainId')
+    let chainId = DEFAULT_CHAIN
+    if (chainIdInUrl && Object.keys(NETWORK_SUPPORTED).includes(chainIdInUrl)) {
+      localStorage.setItem('chainId', chainIdInUrl)
+      chainId = Number(chainIdInUrl)
+    } else if (chainIdInStore) {
+      chainId = Number(chainIdInStore)
+    }
+    if(active) {
+      switchNetwork(chainId)
+    } else {
+      setChainIdDisplay(chainId)
+    }
+  }, [active])
 
   const menus = useMemo(() => {
     const result: { name: string, path: string, menuLink?: string }[] = []
@@ -141,9 +163,9 @@ const Header = ({
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
                   {/*@ts-ignore*/}
-                  <img src={`/icons/${NETWORK_SUPPORTED[chainId || 56]?.logo}`} alt="" />
+                  <img src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`} alt="" />
                   {/*@ts-ignore*/}
-                  <span>{NETWORK_SUPPORTED[chainId || 56]?.name}</span>
+                  <span>{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="network-items">
@@ -152,7 +174,12 @@ const Header = ({
                     <div
                       className="network-item"
                       onClick={() => {
-                        switchNetwork(net.chainId)
+                        if(active) {
+                          switchNetwork(net.chainId)
+                        } else {
+                          // @ts-ignore
+                          setChainIdDisplay(net.chainId)
+                        }
                       }}
                     >
                       <img src={`/icons/${net.logo}`} width={24} height={24} alt="" />

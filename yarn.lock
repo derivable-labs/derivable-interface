@@ -6919,9 +6919,9 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
-"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#3e99fb5ae3a14abff02bfc4a7a032c6910e1c422":
+"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#ca4d73654988dd5c9598f70859823debe6672ba2":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#3e99fb5ae3a14abff02bfc4a7a032c6910e1c422"
+  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#ca4d73654988dd5c9598f70859823debe6672ba2"
   dependencies:
     assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
     ethereum-multicall "^2.15.0"
@@ -8598,9 +8598,9 @@ expect@^29.0.0:
     jest-message-util "^29.1.2"
     jest-util "^29.1.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#47a154ba97ed3df04bf9a96d349c4ac7b2faff3f":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#5cb22ce52c0b4b7a1be64fc18b3dfb9f46c5f496":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#47a154ba97ed3df04bf9a96d349c4ac7b2faff3f"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#5cb22ce52c0b4b7a1be64fc18b3dfb9f46c5f496"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -8609,7 +8609,7 @@ expect@^29.0.0:
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#3e99fb5ae3a14abff02bfc4a7a032c6910e1c422"
+    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#ca4d73654988dd5c9598f70859823debe6672ba2"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
