@@ -2,6 +2,7 @@ import React, {useMemo, useState, useEffect, Fragment} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {
+  CHAIN_IDS,
   CHAINS, DEFAULT_CHAIN,
   NETWORK_METADATA, NETWORK_SUPPORTED,
   SELECTED_NETWORK_LOCAL_STORAGE_KEY,
@@ -54,21 +55,29 @@ const Header = ({
 
   useEffect(() => {
     const searchString = window.location.hash.split('?').length === 2 ? window.location.hash.split('?')[1] : ''
-    const chainIdInUrl = new URLSearchParams('?' + searchString).get('chainId') || ''
-    const chainIdInStore = localStorage.getItem('chainId')
-    let chainId = DEFAULT_CHAIN
-    if (chainIdInUrl && Object.keys(NETWORK_SUPPORTED).includes(chainIdInUrl)) {
-      localStorage.setItem('chainId', chainIdInUrl)
-      chainId = Number(chainIdInUrl)
-    } else if (chainIdInStore) {
-      chainId = Number(chainIdInStore)
-    }
-    if(active) {
-      switchNetwork(chainId)
+    const chainInUrl = new URLSearchParams('?' + searchString).get('chain') || ''
+    const chainIdToSwitch = Object.values(NETWORK_SUPPORTED).find((net: any) => {
+      return net.chainId === chainInUrl || net.key?.toLowerCase() === chainInUrl?.toLowerCase()
+    })?.chainId || null
+
+    if(chainId && chainIdToSwitch && chainId !== Number(chainIdToSwitch)) {
+      toast.info(<div>
+        <div>Wrong network</div>
+        <a
+          className='link-connect-to-network'
+          //@ts-ignore
+          onClick={() => switchNetwork(chainIdToSwitch)}
+        >
+          {/*@ts-ignore*/}
+          Click to connect {NETWORK_SUPPORTED[chainIdToSwitch].name}
+        </a>
+      </div>, {
+        position: "bottom-right",
+      })
     } else {
-      setChainIdDisplay(chainId)
+      setChainIdDisplay(chainIdToSwitch || DEFAULT_CHAIN)
     }
-  }, [active])
+  }, [chainId])
 
   const menus = useMemo(() => {
     const result: { name: string, path: string, menuLink?: string }[] = []
@@ -112,6 +121,17 @@ const Header = ({
       })
       //@ts-ignore
       toast.success('Connected to ' + CHAINS[chainId])
+
+      if(chainId) {
+        let searchParams = new URLSearchParams(location.search);
+        //@ts-ignore
+        searchParams.set('chain', NETWORK_SUPPORTED[chainId.toString() || ''].key);
+        history.push({
+          pathname: location.pathname,
+          search: searchParams.toString()
+        })
+      }
+
       //@ts-ignore
       return CHAINS[chainId]
     } catch (ex) {
@@ -169,7 +189,9 @@ const Header = ({
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="network-items">
-                {Object.values(NETWORK_SUPPORTED).map((net) => {
+                {CHAIN_IDS.map((chainId) => {
+                  // @ts-ignore
+                  const net = NETWORK_SUPPORTED[chainId]
                   return <Menu.Item key={net.chainId}>
                     <div
                       className="network-item"

@@ -10,12 +10,13 @@ export const BSC_NETWORK = 56
 export const BSC_TESTNET_NETWORK = 97
 
 export const DEFAULT_CHAIN = BSC_NETWORK
+export const CHAIN_IDS = [ARBITRUM_NETWORK, BSC_NETWORK, BSC_TESTNET_NETWORK, LOCAL_NETWORK]
 
 export const CHAINS = {
   [ARBITRUM_NETWORK]: 'Arbitrum',
   [BSC_NETWORK]: 'BSC',
-  [LOCAL_NETWORK]: 'Local network',
-  [BSC_TESTNET_NETWORK]: 'BSC test'
+  [BSC_TESTNET_NETWORK]: 'BSC test',
+  [LOCAL_NETWORK]: 'Local network'
 }
 
 export const NETWORK_METADATA = {
@@ -41,6 +42,17 @@ export const NETWORK_METADATA = {
     rpcUrls: 'https://bsc-dataseed.binance.org/',
     blockExplorerUrls: ["https://snowtrace.io/"],
   },
+  [ARBITRUM_NETWORK]: {
+    chainId: "0x" + ARBITRUM_NETWORK.toString(16),
+    chainName: "Arbitrum",
+    nativeCurrency: {
+      name: "ETH",
+      symbol: "ETH",
+      decimals: 18,
+    },
+    rpcUrls: 'https://arb1.arbitrum.io/rpc',
+    blockExplorerUrls: ["https://testnet.bscscan.com"],
+  },
   [BSC_TESTNET_NETWORK]: {
     chainId: "0x" + BSC_TESTNET_NETWORK.toString(16),
     chainName: "BNB Testnet",
@@ -56,26 +68,29 @@ export const NETWORK_METADATA = {
 
 
 export const NETWORK_SUPPORTED = {
-  [BSC_NETWORK]: {
-    chainId: BSC_NETWORK,
-    name: 'BNB Chain',
-    fullname: 'BNB Chain',
-    logo: '56.svg',
-    explorer: "https://bscscan.com/",
-    nativeTokenSymbol: 'BNB'
-  },
   [ARBITRUM_NETWORK]: {
     chainId: ARBITRUM_NETWORK,
     name: 'Arbitrum',
     fullname: 'Arbitrum',
+    key: 'arbitrum',
     logo: '42161.svg',
     explorer: "https://arbiscan.io/",
     nativeTokenSymbol: 'ETH'
+  },
+  [BSC_NETWORK]: {
+    chainId: BSC_NETWORK,
+    name: 'BNB Chain',
+    fullname: 'BNB Chain',
+    key: 'bsc',
+    logo: '56.svg',
+    explorer: "https://bscscan.com/",
+    nativeTokenSymbol: 'BNB'
   },
   [BSC_TESTNET_NETWORK]: {
     chainId: BSC_TESTNET_NETWORK,
     name: 'BNB Testnet',
     fullname: 'BNB Testnet',
+    key: 'bsc-test',
     logo: '56.svg',
     explorer: "https://testnet.bscscan.com",
     nativeTokenSymbol: 'BNBt'
@@ -84,6 +99,7 @@ export const NETWORK_SUPPORTED = {
     chainId: LOCAL_NETWORK,
     name: 'Local Chain',
     fullname: 'Local Chain',
+    key: 'local',
     logo: '31337.svg',
     explorer: "https://bscscan.com/",
     nativeTokenSymbol: 'ETH'
