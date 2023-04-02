@@ -4298,7 +4298,6 @@ assign-symbols@^1.0.0:
 
 "assisted-json-rpc-provider@git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305":
   version "1.0.0"
-  uid "1662bda1343be76618331a2d671bfa56f0d0e305"
   resolved "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
   dependencies:
     async-task-throttle-on-response "^1.0.1"
@@ -8608,9 +8607,9 @@ expect@^29.0.0:
     jest-message-util "^29.1.2"
     jest-util "^29.1.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#42942f29e93828e02deb060c80063454bf0da97b":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#1dbac346f1efe757f6907074e4f6b9fb6242755f":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#42942f29e93828e02deb060c80063454bf0da97b"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#1dbac346f1efe757f6907074e4f6b9fb6242755f"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
