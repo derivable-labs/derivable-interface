@@ -17269,9 +17269,9 @@ web3-providers-ws@1.2.11:
     web3-core-helpers "1.2.11"
     websocket "^1.0.31"
 
-"web3-react-modal@https://github.com/launchzone/web3-react-modal.git#main":
+"web3-react-modal@https://github.com/derivable-labs/web3-react-modal.git#main":
   version "1.0.0"
-  resolved "https://github.com/launchzone/web3-react-modal.git#d3d4870d459d90e4c8564bc74b559987872e56d2"
+  resolved "https://github.com/derivable-labs/web3-react-modal.git#d3d4870d459d90e4c8564bc74b559987872e56d2"
 
 web3-shh@1.2.11:
   version "1.2.11"
