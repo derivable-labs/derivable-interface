@@ -4296,6 +4296,16 @@ assign-symbols@^1.0.0:
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
   integrity sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw==
 
+"assisted-json-rpc-provider@git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305":
+  version "1.0.0"
+  uid "1662bda1343be76618331a2d671bfa56f0d0e305"
+  resolved "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
+  dependencies:
+    async-task-throttle-on-response "^1.0.1"
+    ethers "^5.5.3"
+    lodash "^4.17.21"
+    node-fetch "2"
+
 "assisted-json-rpc-provider@git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305":
   version "1.0.0"
   resolved "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
@@ -6919,9 +6929,9 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
-"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#8a241161444f535c3ef1983c5e8dcb6c850ad83d":
+"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#914804f200950ef530c10e6256733504464938f2":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#8a241161444f535c3ef1983c5e8dcb6c850ad83d"
+  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#914804f200950ef530c10e6256733504464938f2"
   dependencies:
     assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
     ethereum-multicall "^2.15.0"
@@ -8598,18 +8608,18 @@ expect@^29.0.0:
     jest-message-util "^29.1.2"
     jest-util "^29.1.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#98d6284a3ecdef84cbc4e4598ab671a8b9dc0fdf":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#42942f29e93828e02deb060c80063454bf0da97b":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#98d6284a3ecdef84cbc4e4598ab671a8b9dc0fdf"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#42942f29e93828e02deb060c80063454bf0da97b"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
     "@types/react-collapse" "^5.0.1"
     "@uniswap/v3-core" "^1.0.1"
     "@uniswap/v3-sdk" "^3.9.0"
-    assisted-json-rpc-provider "git+ssh://git@github.com:launchzone/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
+    assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#8a241161444f535c3ef1983c5e8dcb6c850ad83d"
+    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#914804f200950ef530c10e6256733504464938f2"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"

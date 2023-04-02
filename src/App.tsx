@@ -14,7 +14,7 @@ function App({ dapps }: {
 }) {
   const { library } = useWeb3React()
   const location = useLocation()
-  const [chainIdDisplay, setChainIdDisplay] = useState<any>(56)
+  const [chainIdDisplay, setChainIdDisplay] = useState<any>(42161)
   const [visibleConnectModal, setVisibleConnectModal] = useState<any>();
 
   const Component = useMemo(() => {
