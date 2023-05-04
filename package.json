@@ -30,7 +30,7 @@
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
     "crypto-js": "3.1.9-1",
-    "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#fed9261e984c9953cfeca3f47684d222f673caed",
+    "exposure-comp": "git+ssh://git@github.com:derivable-io/exposure-comp.git#9eb007fdb18cb1a4400ba17a41411e23b36f591c",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
     "process": "^0.11.10",
