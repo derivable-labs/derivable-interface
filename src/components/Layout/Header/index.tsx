@@ -165,6 +165,7 @@ const Header = ({
             <div className='menu'>
               {
                 menus.map((menu, key) => {
+                  console.log('menu', menu)
                   return <Link
                     to={menu.menuLink || menu.path}
                     className={`menu--item ${(

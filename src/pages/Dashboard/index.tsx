@@ -45,7 +45,7 @@ const menus = [
   },
   {
     name: 'Trade',
-    href: '/trade'
+    href: '/swap'
   },
   {
     name: 'Pools',
