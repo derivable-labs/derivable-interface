@@ -25,9 +25,9 @@ root.render(
     <Web3ReactProvider getLibrary={getLibrary}>
       <Router>
         <Switch>
-          <Route path='/' exact>
-            <Dashboard/>
-          </Route>
+          {/*<Route path='/' exact>*/}
+          {/*  <Dashboard/>*/}
+          {/*</Route>*/}
           <Route>
             <App dapps={[
               {
@@ -38,6 +38,14 @@ root.render(
                   return import('exposure-comp/dist/component');
                 })
               },
+              {
+                configs: require('pool-comp/dist/configs'),
+                Component: React.lazy(() => {
+                  // @ts-ignore
+                  import('pool-comp/dist/component.css');
+                  return import('pool-comp/dist/component');
+                })
+              }
             ]}
             />
           </Route>
