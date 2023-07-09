@@ -2846,6 +2846,11 @@
   resolved "https://registry.yarnpkg.com/@types/d3-time/-/d3-time-2.1.1.tgz#743fdc821c81f86537cbfece07093ac39b4bc342"
   integrity sha512-9MVYlmIgmRR31C5b4FVSWtuMmBHh2mOWQYfl7XAYOa8dsnb7iEmUmRSWSFgXFtkjxO65d7hTUHQC+RhR/9IWFg==
 
+"@types/desmos@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@types/desmos/-/desmos-1.6.0.tgz#49fb86f87cd3a61434a04b4d9765aa78cc6e5b99"
+  integrity sha512-g+U7FVw3/iu88uzaJ/RT+coKxKiCxOWx6ue1hQTLsTPN7jidJw2RMbB+UviSImAUm0TkdkRV0nE9hLSvNX45zQ==
+
 "@types/eslint-scope@^3.7.3":
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/@types/eslint-scope/-/eslint-scope-3.7.4.tgz#37fc1223f0786c39627068a12e94d6e6fc61de16"
@@ -6967,9 +6972,9 @@ depd@~1.1.2:
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
 
-"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#ff26d25a444591c96347abb283d3d56e4d957808":
+"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#94d88825d6822a5b276efc400436fcd50925a081":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#ff26d25a444591c96347abb283d3d56e4d957808"
+  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#94d88825d6822a5b276efc400436fcd50925a081"
   dependencies:
     "@ethersproject/providers" "https://github.com/launchzone/ethers.js/releases/download/v5.3.2.2/ethers_providers.tar.gz"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-io/AssistedJsonRpcProvider.git#1410f1d9a1e733c35d409f4ee79b0ca348f16718"
@@ -6987,6 +6992,13 @@ des.js@^1.0.0:
   dependencies:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
+
+desmos-react@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/desmos-react/-/desmos-react-1.2.0.tgz#f45bbf3649be087687fdfa0c780687f6379241ef"
+  integrity sha512-EoLW2/kfBnGTY1l1ZTgnDUwJQCqgrYupwa56hrwYYBNn0m/7cSXzxB7ljBhg6NIwFR9QFGzAlYy7T/LsyVupuA==
+  dependencies:
+    "@types/desmos" "^1.6.0"
 
 destroy@1.2.0:
   version "1.2.0"
@@ -8648,23 +8660,25 @@ expect@^29.0.0:
     jest-message-util "^29.1.2"
     jest-util "^29.1.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#f59b251b71e397dfd88d6305b9c233e272200c46":
+"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#15952493951c1de22ddc98dfd012c5048953604d":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#f59b251b71e397dfd88d6305b9c233e272200c46"
+  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#15952493951c1de22ddc98dfd012c5048953604d"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
+    "@types/desmos" "^1.6.0"
     "@types/lodash" "^4.14.186"
     "@types/react-collapse" "^5.0.1"
     "@uniswap/v3-core" "^1.0.1"
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1410f1d9a1e733c35d409f4ee79b0ca348f16718"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#ff26d25a444591c96347abb283d3d56e4d957808"
+    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#94d88825d6822a5b276efc400436fcd50925a081"
+    desmos-react "^1.2.0"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
     graphql-request "^3.4.0"
-    leverage-slider "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#776429ea8022f28e11d0eed59fd16aab26aa2f7c"
+    leverage-slider "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#6ce9674f8e7f856927bb7642139055fd98372a1e"
     lodash "^4.17.21"
     moment "^2.29.4"
     rc-slider "^10.0.1"
@@ -11572,9 +11586,9 @@ leven@^3.1.0:
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
   integrity sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==
 
-"leverage-slider@git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#776429ea8022f28e11d0eed59fd16aab26aa2f7c":
+"leverage-slider@git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#6ce9674f8e7f856927bb7642139055fd98372a1e":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#776429ea8022f28e11d0eed59fd16aab26aa2f7c"
+  resolved "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#6ce9674f8e7f856927bb7642139055fd98372a1e"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -13155,9 +13169,9 @@ pocket-js-core@0.0.3:
   dependencies:
     axios "^0.18.0"
 
-"pool-comp@git+ssh://git@github.com:derivable-io/pools-comp.git#26baea3e7c33293b3d82f1245b53b54bc7773fea":
+"pool-comp@git+ssh://git@github.com:derivable-io/pools-comp.git#c1451d3522ea0706edeaf388d5f74063dc8827f5":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/pools-comp.git#26baea3e7c33293b3d82f1245b53b54bc7773fea"
+  resolved "git+ssh://git@github.com:derivable-io/pools-comp.git#c1451d3522ea0706edeaf388d5f74063dc8827f5"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -13166,12 +13180,12 @@ pocket-js-core@0.0.3:
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#1662bda1343be76618331a2d671bfa56f0d0e305"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#ff26d25a444591c96347abb283d3d56e4d957808"
+    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#94d88825d6822a5b276efc400436fcd50925a081"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
     graphql-request "^3.4.0"
-    leverage-slider "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#776429ea8022f28e11d0eed59fd16aab26aa2f7c"
+    leverage-slider "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#6ce9674f8e7f856927bb7642139055fd98372a1e"
     lodash "^4.17.21"
     moment "^2.29.4"
     rc-slider "^10.0.1"
