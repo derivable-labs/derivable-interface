@@ -1,6 +1,9 @@
 import {Modal} from "../Modal";
 import {useWeb3React} from "@web3-react/core";
 import {CopyToClipboard} from 'react-copy-to-clipboard'
+import {
+  NETWORK_SUPPORTED,
+} from "../../utils/constant";
 import "./style.scss"
 
 export const WalletModal = ({
@@ -11,7 +14,7 @@ export const WalletModal = ({
                               visible: boolean
                             }
 ) => {
-  const { account, deactivate } = useWeb3React()
+  const { account, deactivate, chainId } = useWeb3React()
 
   return <Modal title="Wallet" visible={visible} setVisible={setVisible}>
     <div className='wallet-modal'>
@@ -24,11 +27,14 @@ export const WalletModal = ({
           <img src='/icons/copy_icon.svg' alt='' />
         </div>
       </CopyToClipboard>
-      <div className='view-on-bsc-box text-right mt-2'>
-        <a href="https://bscscan.com/" target='_blank' className="view-on-bsc-link">
-          <span className='mr-1'>View on BscScan</span>
-          <img src='/icons/link_icon.svg' alt='' />
-        </a>
+      <div className='view-on-explorer-box text-right mt-2'>
+        {!chainId || !account ? '' :
+          // @ts-ignore
+          <a href={`${NETWORK_SUPPORTED[chainId].explorer}/address/${account}`} target='_blank' className="view-on-explorer-link">
+            <span className='mr-1'>View on Explorer</span>
+            <img src='/icons/link_icon.svg' alt='' />
+          </a>
+        }
       </div>
       <div className='text-center mt-2'>
         <div className='disconnect-btn' onClick={() => {
