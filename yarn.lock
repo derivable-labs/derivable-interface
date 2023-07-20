@@ -7095,20 +7095,6 @@ dequal@^2.0.3:
   resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
-"derivable-tools@git+ssh://git@github.com:blackskin18/derivable-tools.git#dev-build":
-  version "1.0.0"
-  uid "952c024fe8b50a89bc576f0072345670010e5eb7"
-  resolved "git+ssh://git@github.com:blackskin18/derivable-tools.git#952c024fe8b50a89bc576f0072345670010e5eb7"
-  dependencies:
-    "@ethersproject/providers" "https://github.com/launchzone/ethers.js/releases/download/v5.3.2.2/ethers_providers.tar.gz"
-    assisted-json-rpc-provider "git+ssh://git@github.com:derivable-io/AssistedJsonRpcProvider.git#1410f1d9a1e733c35d409f4ee79b0ca348f16718"
-    canonical-weth "^1.4.0"
-    ethereum-multicall "^2.15.0"
-    ethers "^5.5.4"
-    lodash "^4.17.21"
-    node-fetch "^2.6.7"
-    powerLib "git+ssh://git@github.com:derivable-io/power-lib.git#502f7724fe3f25676f48e4107a0c7da705e25d7f"
-
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
   resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#952c024fe8b50a89bc576f0072345670010e5eb7"
@@ -8811,9 +8797,9 @@ expect@^29.0.0:
     jest-message-util "^29.6.1"
     jest-util "^29.6.1"
 
-"exposure-comp@git+ssh://git@github.com:derivable-io/exposure-comp.git#dev":
+"exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/exposure-comp.git#a17b466e69863947cceab55199cd0b66be5b1162"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#952f4d9c74231333eca73cecd7eb74633c7101d9"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -11811,30 +11797,9 @@ leven@^3.1.0:
   resolved "https://registry.yarnpkg.com/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
   integrity sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==
 
-"leverage-slider@git+ssh://git@github.com:blackskin18/leverage-slider-comp.git":
-  version "1.0.0"
-  uid b1d0e28edb3c390b3a5da7aed9ad16d1c55c8319
-  resolved "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git#b1d0e28edb3c390b3a5da7aed9ad16d1c55c8319"
-  dependencies:
-    "@reduxjs/toolkit" "^1.7.1"
-    "@types/lodash" "^4.14.186"
-    "@types/react-collapse" "^5.0.1"
-    caniuse-lite "^1.0.30001434"
-    lodash "^4.17.21"
-    moment "^2.29.4"
-    rc-slider "^10.0.1"
-    react-collapse "^5.1.1"
-    react-fast-compare "^3.2.0"
-    react-redux "^7.2.5"
-    react-router-dom "^5.2.0"
-    react-tabs "^6.0.0"
-    react-toastify "^8.1.0"
-    reactstrap "^9.1.5"
-    recharts "^2.2.0"
-
 "leverage-slider@git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git#b1d0e28edb3c390b3a5da7aed9ad16d1c55c8319"
+  resolved "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git#61640c4e933943d983a5951a30b85b6f596b4c2e"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -13393,9 +13358,9 @@ pocket-js-core@0.0.3:
   dependencies:
     axios "^0.18.0"
 
-"pool-comp@git+ssh://git@github.com:derivable-io/pools-comp.git#dev":
+"pool-comp@git+ssh://git@github.com:derivable-labs/pools-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-io/pools-comp.git#da2696171c9a2c5d6e4e201e3285b9faae5da841"
+  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#93911027214be1c24b5e0059df2203940be9a8b8"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -13404,12 +13369,12 @@ pocket-js-core@0.0.3:
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:blackskin18/derivable-tools.git#dev-build"
+    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
     graphql-request "^3.4.0"
-    leverage-slider "git+ssh://git@github.com:blackskin18/leverage-slider-comp.git"
+    leverage-slider "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git"
     lodash "^4.17.21"
     moment "^2.29.4"
     rc-slider "^10.0.1"
