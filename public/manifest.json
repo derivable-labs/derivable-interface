@@ -1,7 +1,7 @@
 {
   "short_name": "Derivable",
-  "name": "Derivable - Open Derivatives Market",
-  "description": "TRADE, HODL, and CREATE leveraged tokens with no risk of liquidation.",
+  "name": "Derivable - Open Perpetual AMM Protocol",
+  "description": "Open Perpetual AMM Protocol with infinite liquidity and no liquidation.",
   "homepage_url": "https://derivable.finance",
   "start_url": ".",
   "display": "standalone",
