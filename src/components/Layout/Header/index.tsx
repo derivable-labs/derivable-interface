@@ -32,7 +32,7 @@ const Header = ({
   setChainIdDisplay: any,
   chainIdDisplay: number
 }) => {
-  const { account, active, chainId } = useWeb3React()
+  const { account, active, chainId, error } = useWeb3React()
   const location = useLocation()
   const history = useHistory()
   const { activate } = useWeb3React();
@@ -52,6 +52,30 @@ const Header = ({
       }
     }
   }, [activate])
+
+  useEffect(() => {
+    const initConnector = localStorage.getItem(WALLET_CONNECTOR)
+    if (initConnector) {
+      const connector: any = Object.values(connectors)
+        .map(({ connector }) => connector)
+        .find(connector => connector?.constructor?.name === initConnector)
+      const handleAccountsChanged = (accounts: any) => {
+        if (accounts.length > 0) {
+          activate(connector)
+        }
+      }
+      const { ethereum } = window
+      if(ethereum && ethereum.on && connector && !active && !error) {
+        ethereum.on("accountsChanged", handleAccountsChanged)
+        return () => {
+          if (ethereum.removeListener) {
+            ethereum.removeListener("accountsChanged", handleAccountsChanged);
+          }
+        }
+      }
+    }
+    return
+  }, [activate, active, error])
 
   useEffect(() => {
     const searchString = window.location.hash.split('?').length === 2 ? window.location.hash.split('?')[1] : ''
