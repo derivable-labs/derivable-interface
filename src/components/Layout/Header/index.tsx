@@ -64,6 +64,7 @@ const Header = ({
           activate(connector)
         }
       }
+      //@ts-ignore
       const { ethereum } = window
       if(ethereum && ethereum.on && connector && !active && !error) {
         ethereum.on("accountsChanged", handleAccountsChanged)
@@ -208,7 +209,7 @@ const Header = ({
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
                   {/*@ts-ignore*/}
-                  <img src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`} alt="" />
+                  <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`} alt="" />
                   {/*@ts-ignore*/}
                   <span>{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>
                 </div>

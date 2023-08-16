@@ -7102,16 +7102,16 @@ dequal@^2.0.3:
 
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#de51b638703f65e3103746ed19cd34c894ddb047"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#da88aa1d1f269bf88a792ffcfcbb9c614f881020"
   dependencies:
     "@ethersproject/providers" "https://github.com/launchzone/ethers.js/releases/download/v5.3.2.2/ethers_providers.tar.gz"
-    assisted-json-rpc-provider "git+ssh://git@github.com:derivable-io/AssistedJsonRpcProvider.git#1410f1d9a1e733c35d409f4ee79b0ca348f16718"
+    assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
     canonical-weth "^1.4.0"
     ethereum-multicall "^2.15.0"
     ethers "^5.5.4"
     lodash "^4.17.21"
     node-fetch "^2.6.7"
-    powerLib "git+ssh://git@github.com:derivable-io/power-lib.git#502f7724fe3f25676f48e4107a0c7da705e25d7f"
+    powerLib "git+ssh://git@github.com:derivable-labs/power-lib.git#build"
 
 des.js@^1.0.0:
   version "1.1.0"
@@ -8802,9 +8802,9 @@ expect@^29.0.0:
     jest-message-util "^29.6.2"
     jest-util "^29.6.2"
 
-"exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
+"exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#a349975c7865b08ac967e858648312d9f551e29d":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#c00ad4d2ddb319411bee46dc7ff101e0ab1f3bfd"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#a349975c7865b08ac967e858648312d9f551e29d"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -8823,6 +8823,7 @@ expect@^29.0.0:
     leverage-slider "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git"
     lodash "^4.17.21"
     moment "^2.29.4"
+    move-decimal-point "^0.0.4"
     rc-slider "^10.0.1"
     react-collapse "^5.1.1"
     react-fast-compare "^3.2.0"
@@ -12475,6 +12476,11 @@ moment@^2.29.4:
   version "2.29.4"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
+move-decimal-point@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/move-decimal-point/-/move-decimal-point-0.0.4.tgz#29a6c0f07f60058380a79d58dae16bc90516e4c4"
+  integrity sha512-cZrpE/ykbwSmD0DnKAcKa49zaK5LaftD6DzpQDmjSMPRK6i4D4xvnVBCIuZXkpAqvon6DP9Oum2TcLZjclVB/Q==
 
 ms@2.0.0:
   version "2.0.0"
