@@ -34,6 +34,8 @@ function App({ dapps }: {
     return dapps[0].Component
   }, [location.pathname])
 
+  console.log(chainIdDisplay)
+
   return (
     <Layout>
       <Header

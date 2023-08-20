@@ -19,6 +19,8 @@ import {WalletModal} from "../../WalletModal";
 import {toast} from "react-toastify";
 import {Menu} from "@headlessui/react";
 
+const SIMULATE_URL = 'https://1.com'
+
 const Header = ({
                   dapps,
                   visibleConnectModal,
@@ -225,6 +227,14 @@ const Header = ({
                         if(active) {
                           switchNetwork(net.chainId)
                         } else {
+                          let searchParams = new URLSearchParams(location.search);
+                          //@ts-ignore
+                          searchParams.set('chain', CHAINS[net.chainId]?.toLowerCase());
+                          history.push({
+                            pathname: location.pathname,
+                            search: searchParams.toString()
+                          })
+
                           // @ts-ignore
                           setChainIdDisplay(net.chainId)
                         }
