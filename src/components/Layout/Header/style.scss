@@ -22,9 +22,30 @@
     max-width: 100%;
   }
 
+  a {
+    text-decoration: none;
+  }
 
   .logo-box {
     text-align: right;
+  }
+
+  .logo-box::after {
+    content: 'BETA';
+    font-size: 12px;
+    vertical-align: top;
+    color: $color-orange-1;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 3px 4px 2px 4px;
+    margin-left: 3px;
+
+    @include respond(phone) {
+      position: absolute;
+      font-size: 8px;
+      border-radius: 4px;
+      transform: translate(-30px, 24px);
+    }
   }
 
   .menu {
