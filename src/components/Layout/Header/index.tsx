@@ -180,19 +180,18 @@ const Header = ({
   // @ts-ignore
   return (<Fragment>
       <header className='header'>
-        <Link to="/" className='logo-box'>
+        <a href="https://derivable.org" target="_blank" className='logo-box'>
           {
             width &&
             <img src={isPhone ? '/logo-white.png' : '/logo.png'} alt="" />
           }
-        </Link>
+        </a>
 
         {
           !isPhone ?
             <div className='menu'>
               {
                 menus.map((menu, key) => {
-                  console.log('menu', menu)
                   return <Link
                     to={menu.menuLink || menu.path}
                     className={`menu--item ${(
@@ -286,13 +285,13 @@ const Header = ({
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="dapp-menu-items">
-                <Menu.Item key={1}>
-                  <Link to='/' className="dapp-menu-item">
+                <Menu.Item key={0}>
+                  <a href='https://derivable.org' target='_blank' className="dapp-menu-item">
                     Landing Page
-                  </Link>
+                  </a>
                 </Menu.Item>
                 <Menu.Item key={1}>
-                  <a href='https://docs.derivable.finance' className="dapp-menu-item">
+                  <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item">
                     Docs
                   </a>
                 </Menu.Item>
