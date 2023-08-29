@@ -9010,7 +9010,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#261cf371ebb6309d0a6f501226f8c0918100bc4d"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#9d7c46733e0a87c5e0ac01de7aedfc7a2bede239"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -13597,7 +13597,7 @@ pocket-js-core@0.0.3:
 
 "pool-comp@git+ssh://git@github.com:derivable-labs/pools-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#4d6466051e41aac1f45303e41f464b5b527ee0bb"
+  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#28d9388f07ff42cc3856fe305e3784a497eb0a6c"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
