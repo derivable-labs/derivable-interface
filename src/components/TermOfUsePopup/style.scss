@@ -62,10 +62,11 @@
       height: 100%;
     }
     .content {
-      background: rgba(128, 128, 128, 0.1);
-      padding: 1rem 0.5rem;
+      padding: 1rem;
       border-radius: 1rem;
-      height: calc(100% - 15rem);
+      max-height: 400px;
+      overflow: scroll;
+      white-space: pre-line;
 
       .dark & {
         background: #181818;
