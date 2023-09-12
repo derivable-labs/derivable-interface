@@ -55,7 +55,7 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "delock": "sed -i '' '/resolved.*derivable.*/d' yarn.lock",
+    "delock": "sed -i '/resolved.*derivable.*/d' yarn.lock",
     "deploy": "cp -r ./build/images ./build/icons ./build/static build/index.html ../derivable-labs.github.io/docs/;",
     "deploy-backward": "cp build/index.html ../derivable-labs.github.io/docs/trade/; cp build/index.html ../derivable-labs.github.io/docs/trade/exposure/; cp build/index.html ../derivable-labs.github.io/docs/trade/swap/; cp build/index.html ../derivable-labs.github.io/docs/pools/; cp build/index.html ../derivable-labs.github.io/docs/exposure/; cp build/index.html ../derivable-labs.github.io/docs/swap/;"
   },
