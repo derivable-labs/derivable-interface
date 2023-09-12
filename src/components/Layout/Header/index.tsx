@@ -290,7 +290,45 @@ const Header = ({
                     Landing Page
                   </a>
                 </Menu.Item>
-                <Menu.Item key={1}>
+                {
+                  isPhone ? (
+                    <>
+                      <Menu.Item key={1}>
+                        <span className="dapp-menu-item">
+                          Dapp
+                        </span>
+                      </Menu.Item>
+                      <div style={{ paddingLeft: '1rem' }}>
+                        {
+                          menus.map((menu, key) => (
+                            <Menu.Item key={key + 2}>
+                             <Link
+                                to={menu.menuLink || menu.path}
+                                className={`dapp-menu-item`}
+                              >{menu.name}</Link>
+                            </Menu.Item>
+                          ))
+                        }
+                        <Menu.Item key={4}>
+                          <span
+                            onClick={() => {
+                              let searchParams = new URLSearchParams(location.search);
+                              searchParams.set('setting', 'open');
+                              history.push({
+                                pathname: location.pathname,
+                                search: searchParams.toString()
+                              });
+                            }}
+                            className="dapp-menu-item"
+                          >
+                            Setting
+                          </span>
+                        </Menu.Item>
+                      </div>
+                    </>
+                  ) : ''
+                }
+                <Menu.Item key={5}>
                   <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item">
                     Docs
                   </a>
@@ -298,40 +336,6 @@ const Header = ({
               </Menu.Items>
             </Menu>
           </div>
-
-          {
-            isPhone ?
-              <div className="navigation">
-                <input type="checkbox" checked={visibleNav} onChange={(e) => {
-                  setVisibleNav(e.target.checked)
-                }} className="navigation__checkbox" id="navi-toggle" />
-
-                { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label htmlFor="navi-toggle" className="navigation__button">
-                  <span className="navigation__icon">&nbsp;</span>
-                </label>
-
-                <div className="navigation__background">&nbsp;</div>
-
-                <nav className="navigation__nav">
-                  <ul className="navigation__list">
-                    {
-                      menus.map((menu) => {
-                        return <li className="navigation__item">
-                      <span onClick={() => {
-                        history.push(menu.path)
-                        setVisibleNav(false)
-                      }} className="navigation__link">
-                        {menu.name}
-                      </span>
-                        </li>
-                      })
-                    }
-                  </ul>
-                </nav>
-              </div>
-              : ''
-          }
         </div>
       </header>
       <WalletModal
