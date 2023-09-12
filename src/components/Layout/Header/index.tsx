@@ -42,7 +42,7 @@ const Header = ({
   const [visibleWalletModal, setVisibleWalletModal] = useState<boolean>(false)
   const [visibleNav, setVisibleNav] = useState<boolean>(false)
   const isPhone = width && width < 768
-
+  const isSmallPhone = isPhone && width < 400 && width > 300
   useEffect(() => {
     const initConnector = localStorage.getItem(WALLET_CONNECTOR)
     if (initConnector) {
@@ -180,10 +180,10 @@ const Header = ({
   // @ts-ignore
   return (<Fragment>
       <header className='header'>
-        <a href="https://derivable.org" target="_blank" className='logo-box'>
+        <a href="/" className='logo-box'>
           {
             width &&
-            <img src={isPhone ? '/logo-white.png' : '/logo.png'} alt="" />
+            <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt="" className={isPhone ? (isSmallPhone ? 'logo-hero-image' :'logo-image') : ''} />
           }
         </a>
 
@@ -205,14 +205,15 @@ const Header = ({
         }
 
         <div className='header__right'>
-          <div className="hidden-on-phone network-select ">
+          <div className="network-select ">
             <Menu>
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
                   {/*@ts-ignore*/}
                   <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`} alt="" />
                   {/*@ts-ignore*/}
-                  <span>{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>
+                  {isPhone ? <span>▾</span> : <span >{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>}
+               
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="network-items">
@@ -277,7 +278,7 @@ const Header = ({
           {/*  </svg>*/}
           {/*</div>*/}
 
-          <div className="dapp-menu-select ">
+          <div className="dapp-menu-select">
             <Menu>
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='dapp-menu-button'>
@@ -290,48 +291,39 @@ const Header = ({
                     Landing Page
                   </a>
                 </Menu.Item>
-                <Menu.Item key={1}>
+                <Menu.Item key={5}>
                   <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item">
                     Docs
                   </a>
                 </Menu.Item>
+                {
+                  isPhone ? (
+                    <>
+                      <Menu.Item key={1}>
+                        <span className="dapp-menu-item">
+                          Dapp
+                        </span>
+                      </Menu.Item>
+                      <div style={{ paddingLeft: '1rem' }}>
+                        {
+                          menus.map((menu, key) => (
+                            <Menu.Item key={key + 2}>
+                             <Link
+                                to={menu.menuLink || menu.path}
+                                className={`dapp-menu-item ${(
+                                  matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
+                                  (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
+                              >{menu.name}</Link>
+                            </Menu.Item>
+                          ))
+                        }
+                      </div>
+                    </>
+                  ) : ''
+                }
               </Menu.Items>
             </Menu>
           </div>
-
-          {
-            isPhone ?
-              <div className="navigation">
-                <input type="checkbox" checked={visibleNav} onChange={(e) => {
-                  setVisibleNav(e.target.checked)
-                }} className="navigation__checkbox" id="navi-toggle" />
-
-                { /* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                <label htmlFor="navi-toggle" className="navigation__button">
-                  <span className="navigation__icon">&nbsp;</span>
-                </label>
-
-                <div className="navigation__background">&nbsp;</div>
-
-                <nav className="navigation__nav">
-                  <ul className="navigation__list">
-                    {
-                      menus.map((menu) => {
-                        return <li className="navigation__item">
-                      <span onClick={() => {
-                        history.push(menu.path)
-                        setVisibleNav(false)
-                      }} className="navigation__link">
-                        {menu.name}
-                      </span>
-                        </li>
-                      })
-                    }
-                  </ul>
-                </nav>
-              </div>
-              : ''
-          }
         </div>
       </header>
       <WalletModal
