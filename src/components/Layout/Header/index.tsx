@@ -180,7 +180,7 @@ const Header = ({
   // @ts-ignore
   return (<Fragment>
       <header className='header'>
-        <a href="https://derivable.org" className='logo-box'>
+        <a href="/" className='logo-box'>
           {
             width &&
             <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt="" className={isPhone ? (isSmallPhone ? 'logo-hero-image' :'logo-image') : ''} />
