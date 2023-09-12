@@ -7297,7 +7297,7 @@ dequal@^2.0.3:
 
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#13fc668fab8279dc1bc8d96ad904b0fb58e500f5"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#0e388acb980d7d08202734bee2ef508e10871234"
   dependencies:
     "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
@@ -7305,6 +7305,7 @@ dequal@^2.0.3:
     ethereum-multicall "^2.15.0"
     ethers "^5.5.4"
     lodash "^4.17.21"
+    move-decimal-point "^0.0.4"
     node-fetch "^2.6.7"
     powerLib "git+ssh://git@github.com:derivable-labs/power-lib.git#build"
 
@@ -9026,7 +9027,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#99488e4a0a0073fb6566ec4301e83700d46a8b3c"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#87207c96ddfaec4f3c4400fa44d8ffbe9d2485f4"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -12060,7 +12061,7 @@ leven@^3.1.0:
 
 "leverage-slider@git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git#61640c4e933943d983a5951a30b85b6f596b4c2e"
+  resolved "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git#c323507fab13eda161c8226f5fd3838207ba7c56"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
