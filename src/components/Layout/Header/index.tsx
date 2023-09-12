@@ -180,10 +180,10 @@ const Header = ({
   // @ts-ignore
   return (<Fragment>
       <header className='header'>
-        <a href="https://derivable.org" target="_blank" className='logo-box'>
+        <a href="https://derivable.org" className='logo-box'>
           {
             width &&
-            <img src={isPhone ? '/logo-white.png' : '/logo.png'} alt="" />
+            <img src='/logo.png' alt="" className={isPhone ? 'logo-image' : ''} />
           }
         </a>
 
@@ -205,14 +205,15 @@ const Header = ({
         }
 
         <div className='header__right'>
-          <div className="hidden-on-phone network-select ">
+          <div className="network-select ">
             <Menu>
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
                   {/*@ts-ignore*/}
                   <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`} alt="" />
                   {/*@ts-ignore*/}
-                  <span>{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>
+                  {isPhone ? <span>▾</span> : <span >{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>}
+               
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="network-items">
@@ -277,7 +278,7 @@ const Header = ({
           {/*  </svg>*/}
           {/*</div>*/}
 
-          <div className="dapp-menu-select ">
+          <div className="dapp-menu-select">
             <Menu>
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='dapp-menu-button'>
@@ -288,6 +289,11 @@ const Header = ({
                 <Menu.Item key={0}>
                   <a href='https://derivable.org' target='_blank' className="dapp-menu-item">
                     Landing Page
+                  </a>
+                </Menu.Item>
+                <Menu.Item key={5}>
+                  <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item">
+                    Docs
                   </a>
                 </Menu.Item>
                 {
@@ -304,35 +310,17 @@ const Header = ({
                             <Menu.Item key={key + 2}>
                              <Link
                                 to={menu.menuLink || menu.path}
-                                className={`dapp-menu-item`}
+                                className={`dapp-menu-item ${(
+                                  matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
+                                  (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
                               >{menu.name}</Link>
                             </Menu.Item>
                           ))
                         }
-                        <Menu.Item key={4}>
-                          <span
-                            onClick={() => {
-                              let searchParams = new URLSearchParams(location.search);
-                              searchParams.set('setting', 'open');
-                              history.push({
-                                pathname: location.pathname,
-                                search: searchParams.toString()
-                              });
-                            }}
-                            className="dapp-menu-item"
-                          >
-                            Setting
-                          </span>
-                        </Menu.Item>
                       </div>
                     </>
                   ) : ''
                 }
-                <Menu.Item key={5}>
-                  <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item">
-                    Docs
-                  </a>
-                </Menu.Item>
               </Menu.Items>
             </Menu>
           </div>
