@@ -46,6 +46,10 @@
       font-size: 8px;
       border-radius: 4px;
       transform: translate(-2rem, -2rem);
+      z-index: 10;
+    }
+    @include respond(small-phone){
+      transform: translate(-1rem, -0.5rem);
     }
   }
 
@@ -372,5 +376,8 @@
 }
 
 .logo-image {
-  width: 110px
+  width: 110px;
+}
+.logo-hero-image {
+  width: 50px;
 }

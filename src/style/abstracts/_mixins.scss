@@ -20,6 +20,11 @@ $breakpoint arguement choices:
 
 
 @mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 412px) {
+      @content
+    }; // 0 - 400px
+  }
   @if $breakpoint == phone {
     @media only screen and (max-width: 768px) {
       @content

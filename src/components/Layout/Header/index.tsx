@@ -42,7 +42,7 @@ const Header = ({
   const [visibleWalletModal, setVisibleWalletModal] = useState<boolean>(false)
   const [visibleNav, setVisibleNav] = useState<boolean>(false)
   const isPhone = width && width < 768
-
+  const isSmallPhone = isPhone && width < 400 && width > 300
   useEffect(() => {
     const initConnector = localStorage.getItem(WALLET_CONNECTOR)
     if (initConnector) {
@@ -183,7 +183,7 @@ const Header = ({
         <a href="https://derivable.org" className='logo-box'>
           {
             width &&
-            <img src='/logo.png' alt="" className={isPhone ? 'logo-image' : ''} />
+            <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt="" className={isPhone ? (isSmallPhone ? 'logo-hero-image' :'logo-image') : ''} />
           }
         </a>
 
