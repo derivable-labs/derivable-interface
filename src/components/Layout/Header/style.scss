@@ -135,7 +135,7 @@
 
     &-items {
       position: absolute;
-      left: -7.5rem;
+      left: 0rem;
       top: 5.5rem;
       max-width: 17.5rem;
       min-width: 12rem;
@@ -189,7 +189,6 @@
   }
 
   .dapp-menu {
-
     &-select {
       @include respond(phone) {
         margin-right: 0;
@@ -210,6 +209,7 @@
     }
 
     &-items {
+      left: -7.5rem;
       @include respond(phone) {
         top: 6.5rem;
         left: -7rem;
