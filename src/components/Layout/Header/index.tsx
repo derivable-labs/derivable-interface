@@ -205,7 +205,7 @@ const Header = ({
         }
 
         <div className='header__right'>
-          <div className="network-select ">
+          <div className="network-select">
             <Menu>
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
@@ -217,9 +217,10 @@ const Header = ({
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="network-items">
-                {CHAIN_IDS.map((chainId) => {
+                {CHAIN_IDS.map((_chainId) => {
                   // @ts-ignore
-                  const net = NETWORK_SUPPORTED[chainId]
+                  const net = NETWORK_SUPPORTED[_chainId]
+                  if(_chainId === chainId) return '';
                   return <Menu.Item key={net.chainId}>
                     <div
                       className="network-item"
