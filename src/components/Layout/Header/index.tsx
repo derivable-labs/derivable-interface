@@ -328,7 +328,7 @@ const Header = ({
                             else {
                               return (<Menu.Item key={key + 2}>
                                 <span className='dapp-menu-item'>
-                                  Create <br/>(coming soon)
+                                  Create (coming soon)
 
                                 </span>
                               </Menu.Item>)
