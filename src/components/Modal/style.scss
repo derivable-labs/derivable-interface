@@ -41,7 +41,9 @@
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     margin-top: 12rem;
     overflow: hidden;
-
+    .title {
+      color: $color-grey;
+    }
     .btn-close-wrap {
       margin-bottom: .5rem;
       display: flex;
@@ -49,6 +51,7 @@
       align-items: center;
 
       .btn-close {
+        color: $color-grey;
         cursor: pointer;
       }
       .title {

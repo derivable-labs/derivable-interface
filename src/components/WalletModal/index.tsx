@@ -18,7 +18,7 @@ export const WalletModal = ({
 
   return <Modal title="Wallet" visible={visible} setVisible={setVisible}>
     <div className='wallet-modal'>
-      <p className="mb-1">Your address</p>
+      <p className="mb-1 wallet-modal-text">Your address</p>
       <CopyToClipboard text={account || ''}>
         <div className='address-box'>
           <div className='address'>
