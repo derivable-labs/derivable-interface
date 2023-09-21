@@ -79,6 +79,31 @@
         background: $color-primary;
       }
     }
+    .tooltip {
+      cursor: pointer;
+    }
+    
+    .tooltiptext {
+      visibility: hidden;
+      background-color: white;
+      color: black;
+      text-align: center;
+      border-radius: 6px;
+      white-space: nowrap;
+      font-weight: 400;
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      left: 50%;
+      margin-top: 10px;
+      margin-left: -60px;
+      padding: 0.5rem;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
   }
 
   &__right {
@@ -137,9 +162,8 @@
       position: absolute;
       left: 0rem;
       top: 5.5rem;
-      max-width: 17.5rem;
-      min-width: 12rem;
-      width: 100%;
+      width: fit-content;
+      white-space: nowrap;
       transform-origin: top right;
       border-radius: 0.4rem;
       background: $color-modal-bg;
@@ -161,7 +185,7 @@
       align-items: center;
       font-size: 1.5rem;
       color: #a0a3c4;
-      padding-bottom: 1.5rem;
+      padding-bottom:z 1.5rem;
       font-size: 1.4rem;
       padding: 0.82rem 0.8rem;
       border-radius: 0.4rem;
@@ -212,7 +236,7 @@
       left: -7.5rem;
       @include respond(phone) {
         top: 6.5rem;
-        left: -7rem;
+        left: -12.5rem;
       }
     }
 
@@ -383,3 +407,5 @@
 .logo-hero-image {
   width: 50px;
 }
+
+

@@ -192,12 +192,19 @@ const Header = ({
             <div className='menu'>
               {
                 menus.map((menu, key) => {
-                  return <Link
-                    to={menu.menuLink || menu.path}
-                    className={`menu--item ${(
-                      matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
-                      (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
-                  >{menu.name}</Link>
+                  if(menu.name !== "Create"){
+                    return <Link
+                      to={menu.menuLink || menu.path}
+                      className={`menu--item ${(
+                        matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
+                        (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
+                    >{menu.name}</Link>
+                  } else {
+                    return <div className="menu--item tooltip">
+                      Create
+                    <span className="tooltiptext">COMING SOON</span>
+                  </div>
+                  }
                 })
               }
             </div>
@@ -307,16 +314,26 @@ const Header = ({
                       </Menu.Item>
                       <div style={{ paddingLeft: '1rem' }}>
                         {
-                          menus.map((menu, key) => (
-                            <Menu.Item key={key + 2}>
-                             <Link
-                                to={menu.menuLink || menu.path}
-                                className={`dapp-menu-item ${(
-                                  matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
-                                  (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
-                              >{menu.name}</Link>
-                            </Menu.Item>
-                          ))
+                          menus.map((menu, key) => {
+                            if(menu.name !== "Create"){
+                                return (<Menu.Item key={key + 2}>
+                                <Link
+                                    to={menu.menuLink || menu.path}
+                                    className={`dapp-menu-item ${(
+                                      matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
+                                      (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
+                                  >{menu.name}</Link>
+                                </Menu.Item>)
+                            }
+                            else {
+                              return (<Menu.Item key={key + 2}>
+                                <span className='dapp-menu-item'>
+                                  Create (coming soon)
+
+                                </span>
+                              </Menu.Item>)
+                            }
+                        })
                         }
                       </div>
                     </>
