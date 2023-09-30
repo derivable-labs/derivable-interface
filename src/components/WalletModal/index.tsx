@@ -5,6 +5,7 @@ import {
   NETWORK_SUPPORTED,
 } from "../../utils/constant";
 import "./style.scss"
+import useAuth from "../../hooks/useAuth";
 
 export const WalletModal = ({
                               setVisible,
@@ -14,7 +15,8 @@ export const WalletModal = ({
                               visible: boolean
                             }
 ) => {
-  const { account, deactivate, chainId } = useWeb3React()
+  const { account, chainId } = useWeb3React()
+  const {logout} = useAuth()
 
   return <Modal title="Wallet" visible={visible} setVisible={setVisible}>
     <div className='wallet-modal'>
@@ -38,7 +40,7 @@ export const WalletModal = ({
       </div>
       <div className='text-center mt-2'>
         <div className='disconnect-btn' onClick={() => {
-          deactivate()
+          logout()
           setVisible(false)
         }}>
           Disconnect Wallet

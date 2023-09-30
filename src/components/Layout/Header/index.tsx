@@ -8,7 +8,6 @@ import {
   SELECTED_NETWORK_LOCAL_STORAGE_KEY,
   WALLET_CONNECTOR
 } from "../../../utils/constant";
-import connectors from "../../../utils/connectors";
 import {useWeb3React} from "@web3-react/core";
 import {Web3ReactModal} from 'web3-react-modal';
 import {Link, matchPath, useHistory, useLocation} from "react-router-dom"
@@ -18,6 +17,8 @@ import {shortenAddressString} from "../../../utils/helpers";
 import {WalletModal} from "../../WalletModal";
 import {toast} from "react-toastify";
 import {Menu} from "@headlessui/react";
+import useAuth from "../../../hooks/useAuth";
+import {ConnectionType} from "../../../utils/web3React";
 
 const SIMULATE_URL = 'https://1.com'
 
@@ -34,51 +35,50 @@ const Header = ({
   setChainIdDisplay: any,
   chainIdDisplay: number
 }) => {
-  const { account, active, chainId, error } = useWeb3React()
+  const {account, isActive, chainId} = useWeb3React()
   const location = useLocation()
   const history = useHistory()
-  const { activate } = useWeb3React();
-  const { width } = useWindowSize()
+  // const { activate } = useWeb3React();
+  const {width} = useWindowSize()
   const [visibleWalletModal, setVisibleWalletModal] = useState<boolean>(false)
   const [visibleNav, setVisibleNav] = useState<boolean>(false)
+  const {login} = useAuth()
+
   const isPhone = width && width < 768
   const isSmallPhone = isPhone && width < 400 && width > 300
-  useEffect(() => {
-    const initConnector = localStorage.getItem(WALLET_CONNECTOR)
-    if (initConnector) {
-      const connector = Object.values(connectors)
-        .map(({ connector }) => connector)
-        .find(connector => connector?.constructor?.name === initConnector)
-      if (connector) {
-        activate(connector)
-      }
-    }
-  }, [activate])
 
   useEffect(() => {
     const initConnector = localStorage.getItem(WALLET_CONNECTOR)
-    if (initConnector) {
-      const connector: any = Object.values(connectors)
-        .map(({ connector }) => connector)
-        .find(connector => connector?.constructor?.name === initConnector)
-      const handleAccountsChanged = (accounts: any) => {
-        if (accounts.length > 0) {
-          activate(connector)
-        }
-      }
-      //@ts-ignore
-      const { ethereum } = window
-      if(ethereum && ethereum.on && connector && !active && !error) {
-        ethereum.on("accountsChanged", handleAccountsChanged)
-        return () => {
-          if (ethereum.removeListener) {
-            ethereum.removeListener("accountsChanged", handleAccountsChanged);
-          }
-        }
-      }
+    if (initConnector  && !isActive) {
+      // @ts-ignore
+      login(initConnector)
     }
-    return
-  }, [activate, active, error])
+  }, [isActive])
+
+  // useEffect(() => {
+  //   const initConnector = localStorage.getItem(WALLET_CONNECTOR)
+  //   if (initConnector) {
+  //     const connector: any = Object.values(connectors)
+  //       .map(({ connector }) => connector)
+  //       .find(connector => connector?.constructor?.name === initConnector)
+  //     const handleAccountsChanged = (accounts: any) => {
+  //       if (accounts.length > 0) {
+  //         activate(connector)
+  //       }
+  //     }
+  //     //@ts-ignore
+  //     const { ethereum } = window
+  //     if(ethereum && ethereum.on && connector && !active && !error) {
+  //       ethereum.on("accountsChanged", handleAccountsChanged)
+  //       return () => {
+  //         if (ethereum.removeListener) {
+  //           ethereum.removeListener("accountsChanged", handleAccountsChanged);
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return
+  // }, [activate, active, error])
 
   useEffect(() => {
     const searchString = window.location.hash.split('?').length === 2 ? window.location.hash.split('?')[1] : ''
@@ -87,7 +87,7 @@ const Header = ({
       return net.chainId === chainInUrl || net.key?.toLowerCase() === chainInUrl?.toLowerCase()
     })?.chainId || null
 
-    if(chainId && chainIdToSwitch && chainId !== Number(chainIdToSwitch)) {
+    if (chainId && chainIdToSwitch && chainId !== Number(chainIdToSwitch)) {
       toast.info(<div>
         <div>Wrong network</div>
         <a
@@ -131,7 +131,7 @@ const Header = ({
 
 
   const switchNetwork = async (chainId: number) => {
-    if (!active) {
+    if (!isActive) {
       // chainId in localStorage allows to switch network even if wallet is not connected
       // or there is no wallet at all
       localStorage.setItem(SELECTED_NETWORK_LOCAL_STORAGE_KEY, chainId.toString())
@@ -144,12 +144,12 @@ const Header = ({
       //@ts-ignore
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: chainIdHex }]
+        params: [{chainId: chainIdHex}]
       })
       //@ts-ignore
       toast.success('Connected to ' + CHAINS[chainId])
 
-      if(chainId) {
+      if (chainId) {
         let searchParams = new URLSearchParams(location.search);
         //@ts-ignore
         searchParams.set('chain', NETWORK_SUPPORTED[chainId.toString() || ''].key);
@@ -174,7 +174,7 @@ const Header = ({
 
   const addNetwork = async (metadata: any) => {
     //@ts-ignore
-    await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [metadata] }).catch()
+    await window.ethereum.request({method: 'wallet_addEthereumChain', params: [metadata]}).catch()
   }
 
   // @ts-ignore
@@ -183,7 +183,8 @@ const Header = ({
         <a href="/" className='logo-box'>
           {
             width &&
-            <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt="" className={isPhone ? (isSmallPhone ? 'logo-hero-image' :'logo-image') : ''} />
+            <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt=""
+                 className={isPhone ? (isSmallPhone ? 'logo-hero-image' : 'logo-image') : ''}/>
           }
         </a>
 
@@ -192,18 +193,18 @@ const Header = ({
             <div className='menu'>
               {
                 menus.map((menu, key) => {
-                  if(menu.name !== "Create"){
+                  if (menu.name !== "Create") {
                     return <Link
                       to={menu.menuLink || menu.path}
                       className={`menu--item ${(
-                        matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
+                        matchPath(location.pathname, {path: menu.path, exact: true, strict: false}) ||
                         (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
                     >{menu.name}</Link>
                   } else {
                     return <div className="menu--item tooltip">
                       Create
-                    <span className="tooltiptext">COMING SOON</span>
-                  </div>
+                      <span className="tooltiptext">COMING SOON</span>
+                    </div>
                   }
                 })
               }
@@ -217,22 +218,23 @@ const Header = ({
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
                   {/*@ts-ignore*/}
-                  <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`} alt="" />
+                  <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`}
+                       alt=""/>
                   {/*@ts-ignore*/}
-                  {isPhone ? <span>▾</span> : <span >{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>}
-               
+                  {isPhone ? <span>▾</span> : <span>{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>}
+
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="network-items">
                 {CHAIN_IDS.map((_chainId) => {
                   // @ts-ignore
                   const net = NETWORK_SUPPORTED[_chainId]
-                  if(_chainId === chainId) return '';
+                  if (_chainId === chainId) return '';
                   return <Menu.Item key={net.chainId}>
                     <div
                       className="network-item"
                       onClick={() => {
-                        if(active) {
+                        if (isActive) {
                           switchNetwork(net.chainId)
                         } else {
                           let searchParams = new URLSearchParams(location.search);
@@ -248,7 +250,7 @@ const Header = ({
                         }
                       }}
                     >
-                      <img src={`/icons/${net.logo}`} width={24} height={24} alt="" />
+                      <img src={`/icons/${net.logo}`} width={24} height={24} alt=""/>
                       <span>{net.name}</span>
                     </div>
                   </Menu.Item>
@@ -290,17 +292,17 @@ const Header = ({
             <Menu>
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='dapp-menu-button'>
-                  <img src={`/icons/option.png`} alt="" width={24} height={24} />
+                  <img src={`/icons/option.png`} alt="" width={24} height={24}/>
                 </div>
               </Menu.Button>
               <Menu.Items as="div" className="dapp-menu-items">
                 <Menu.Item key={0}>
-                  <a href='https://derivable.org' target='_blank' className="dapp-menu-item">
+                  <a href='https://derivable.org' target='_blank' className="dapp-menu-item" rel="noreferrer">
                     Landing Page
                   </a>
                 </Menu.Item>
                 <Menu.Item key={5}>
-                  <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item">
+                  <a href='https://docs.derivable.org' target='_blank' className="dapp-menu-item" rel="noreferrer">
                     Docs
                   </a>
                 </Menu.Item>
@@ -312,28 +314,26 @@ const Header = ({
                           Dapp
                         </span>
                       </Menu.Item>
-                      <div style={{ paddingLeft: '1rem' }}>
+                      <div style={{paddingLeft: '1rem'}}>
                         {
                           menus.map((menu, key) => {
-                            if(menu.name !== "Create"){
-                                return (<Menu.Item key={key + 2}>
+                            if (menu.name !== "Create") {
+                              return (<Menu.Item key={key + 2}>
                                 <Link
-                                    to={menu.menuLink || menu.path}
-                                    className={`dapp-menu-item ${(
-                                      matchPath(location.pathname, { path: menu.path, exact: true, strict: false }) ||
-                                      (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
-                                  >{menu.name}</Link>
-                                </Menu.Item>)
-                            }
-                            else {
+                                  to={menu.menuLink || menu.path}
+                                  className={`dapp-menu-item ${(
+                                    matchPath(location.pathname, {path: menu.path, exact: true, strict: false}) ||
+                                    (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
+                                >{menu.name}</Link>
+                              </Menu.Item>)
+                            } else {
                               return (<Menu.Item key={key + 2}>
                                 <span className='dapp-menu-item'>
                                   Create (coming soon)
-
                                 </span>
                               </Menu.Item>)
                             }
-                        })
+                          })
                         }
                       </div>
                     </>
@@ -351,18 +351,9 @@ const Header = ({
       <Web3ReactModal
         visible={visibleConnectModal}
         setVisible={setVisibleConnectModal}
-        providerOptions={connectors}
-        onConnect={(connector: any, _: any, email: string) => {
-          const name = connector?.constructor?.name;
-          if (email && name === 'MagicConnector') {
-            connector.email = email
-          }
-          activate(connector, (err) => {
-            alert(err.toString())
-          });
-          if (name) {
-            localStorage.setItem(WALLET_CONNECTOR, name);
-          }
+        providerOptions={Object.values(ConnectionType)}
+        onConnect={(connector: any) => {
+          login(connector)
         }}
       />
     </Fragment>
