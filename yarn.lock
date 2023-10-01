@@ -7038,7 +7038,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#2fd7fd5bbe464211271c48a057e79bfabb4df4a8"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#4ca8dbb6785f8061f20da1e1a8c2daccc595f053"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
