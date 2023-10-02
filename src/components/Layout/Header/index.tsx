@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useEffect, Fragment} from 'react'
+import {useMemo, useState, useEffect, Fragment} from 'react'
 import './style.scss'
 import {useWindowSize} from "../../../hooks/useWindowSize";
 import {

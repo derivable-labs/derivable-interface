@@ -7,7 +7,6 @@ import reportWebVitals from './reportWebVitals';
 import {ethers} from 'ethers';
 import {Web3ReactProvider} from '@web3-react/core';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
-import Dashboard from "./pages/Dashboard";
 import {connectors} from "./utils/connectors";
 
 window.Buffer = window.Buffer || Buffer;
