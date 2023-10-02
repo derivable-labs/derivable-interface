@@ -14245,7 +14245,7 @@ web-vitals@^2.1.4:
 
 "web3-react-modal@https://github.com/derivable-labs/web3-react-modal.git":
   version "1.0.0"
-  resolved "https://github.com/derivable-labs/web3-react-modal.git#15334a31f8b1e86c6fc0faaf07d5dbce02366f72"
+  resolved "https://github.com/derivable-labs/web3-react-modal.git#cb5a5d83160667658e8b88acb4911a7548211d5a"
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
