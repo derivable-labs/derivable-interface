@@ -18,6 +18,13 @@ export const CHAINS = {
   [BASE_NETWORK]: 'Base'
 }
 
+export const RPC_URLS: { [chainId: number]: string } = {
+  [BSC_NETWORK]: 'https://bsc-dataseed.binance.org/' as string,
+  [ARBITRUM_NETWORK]: 'https://arb1.arbitrum.io/rpc' as string,
+  [LOCAL_NETWORK]: 'http://localhost:8545/' as string,
+  [BSC_TESTNET_NETWORK]: 'https://data-seed-prebsc-1-s1.binance.org:8545/' as string
+}
+
 export const NETWORK_METADATA = {
   [ARBITRUM_NETWORK]: {
     chainId: "0x" + ARBITRUM_NETWORK.toString(16),
@@ -42,7 +49,6 @@ export const NETWORK_METADATA = {
     blockExplorerUrls: ["https://basescan.org"],
   }
 };
-
 
 export const NETWORK_SUPPORTED = {
   [ARBITRUM_NETWORK]: {

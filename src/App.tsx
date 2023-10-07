@@ -13,7 +13,6 @@ import {ErrorBoundary} from "./components/ErrorBoundary";
 function App({dapps}: {
   dapps: DappType[]
 }) {
-  const {library} = useWeb3React()
   const location = useLocation()
   const [chainIdDisplay, setChainIdDisplay] = useState<any>(42161)
   const [visibleConnectModal, setVisibleConnectModal] = useState<any>();
@@ -34,8 +33,6 @@ function App({dapps}: {
 
     return dapps[0].Component
   }, [location.pathname])
-
-  console.log(chainIdDisplay)
 
   return (
     <Layout>
