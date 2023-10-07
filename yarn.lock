@@ -5963,7 +5963,7 @@ dequal@^2.0.3:
 
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#cc04c46e62f0d4ba4ab2aa4bdc7bd593640b53cb"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#4065ade4db3b74242e5d65396d327c57ec07894e"
   dependencies:
     "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
@@ -7036,7 +7036,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#df20e49945d2c6bfa079a3b18b29721ed9f20653"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#0eb7dea67299351b410c89d2e2a87cf03045da51"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
