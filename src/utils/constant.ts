@@ -11,11 +11,12 @@ export const BSC_TESTNET_NETWORK = 97
 export const BASE_NETWORK = 8453
 
 export const DEFAULT_CHAIN = ARBITRUM_NETWORK
-export const CHAIN_IDS = [ARBITRUM_NETWORK, BASE_NETWORK]
+export const CHAIN_IDS = [ARBITRUM_NETWORK, BASE_NETWORK, BSC_NETWORK]
 
 export const CHAINS = {
   [ARBITRUM_NETWORK]: 'Arbitrum',
-  [BASE_NETWORK]: 'Base'
+  [BASE_NETWORK]: 'Base',
+  [BSC_NETWORK]: 'BNB Chain'
 }
 
 export const RPC_URLS: { [chainId: number]: string } = {
@@ -47,6 +48,17 @@ export const NETWORK_METADATA = {
     },
     rpcUrls: 'https://mainnet.base.org',
     blockExplorerUrls: ["https://basescan.org"],
+  },
+  [BSC_NETWORK]: {
+    chainId: "0x" + BSC_NETWORK.toString(16),
+    chainName: "BNB Smart Chain",
+    nativeCurrency: {
+      name: "BNB",
+      symbol: "BNB",
+      decimals: 18,
+    },
+    rpcUrls: 'https://bsc-dataseed3.binance.org',
+    blockExplorerUrls: ["https://bscscan.com"],
   }
 };
 
@@ -67,6 +79,15 @@ export const NETWORK_SUPPORTED = {
     key: 'base',
     logo: '8453.png',
     explorer: "https://basescan.org",
+    nativeTokenSymbol: 'ETH'
+  },
+  [BSC_NETWORK]: {
+    chainId: BSC_NETWORK,
+    name: 'BSC',
+    fullname: 'BNB Smart Chain',
+    key: 'bnb',
+    logo: '56.svg',
+    explorer: "https://bscscan.com",
     nativeTokenSymbol: 'ETH'
   }
 }

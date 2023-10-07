@@ -5963,7 +5963,7 @@ dequal@^2.0.3:
 
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#cc04c46e62f0d4ba4ab2aa4bdc7bd593640b53cb"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#3a97586dc7cfcc0bfec78aa0a8d02bd6924b66f1"
   dependencies:
     "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
@@ -7036,7 +7036,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#df20e49945d2c6bfa079a3b18b29721ed9f20653"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#e80895da4ed1140ed401e05fde6fe1d64a6cf63a"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -14245,7 +14245,7 @@ web-vitals@^2.1.4:
 
 "web3-react-modal@https://github.com/derivable-labs/web3-react-modal.git":
   version "1.0.0"
-  resolved "https://github.com/derivable-labs/web3-react-modal.git#cb5a5d83160667658e8b88acb4911a7548211d5a"
+  resolved "https://github.com/derivable-labs/web3-react-modal.git#07cfa1f27353fd858a9a2b66aa996828702a39d9"
 
 webidl-conversions@^3.0.0:
   version "3.0.1"
