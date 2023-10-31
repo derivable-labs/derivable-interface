@@ -186,7 +186,7 @@ const Header = ({
   return (<Fragment>
       <header className='header'>
         <div
-          className={`logo-box ${playMode && 'play'}`} 
+          className={`logo-box tooltip ${playMode && 'play'}`} 
           onClick={() => {
            let searchParams = new URLSearchParams(location.search)
            if (searchParams.has('play')) {
@@ -202,6 +202,7 @@ const Header = ({
             <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt=""
                  className={isPhone ? (isSmallPhone ? 'logo-hero-image' : 'logo-image') : ''}/>
           }
+          <span className="tooltiptext">TOGGLE PLAY MODE</span>
         </div>
 
         {
