@@ -29,6 +29,16 @@
 
   .logo-box {
     text-align: right;
+    cursor: pointer;
+    &.play::after {
+      content: 'PLAY';
+      color: $color-pink;
+    }
+
+    &.tooltip .tooltiptext {
+      top: 30%;
+      left: 110%;
+    }
   }
 
   .logo-box::after {
@@ -79,10 +89,15 @@
         background: $color-primary;
       }
     }
-    .tooltip {
-      cursor: pointer;
+  }
+
+  .tooltip {
+    cursor: pointer;
+
+    &:hover .tooltiptext {
+      visibility: visible;
     }
-    
+
     .tooltiptext {
       visibility: hidden;
       background-color: white;
@@ -99,11 +114,6 @@
       margin-left: -60px;
       padding: 0.5rem;
     }
-    
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-    }
-
   }
 
   &__right {

@@ -5982,7 +5982,7 @@ dequal@^2.0.3:
 
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#bc8573a298b53f7a7ace7b8a8258a83486235d13"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#78e61217d19c3d1395d18f17a58f3b691235148b"
   dependencies:
     "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
     "@zoltu/ethereum-crypto" "^2.3.0"
@@ -7061,7 +7061,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#82ddd9850eb693d97aae8cad0c79d82265833232"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#3f8e04c88b85d8a6917798f9c12df2817b3ac853"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
