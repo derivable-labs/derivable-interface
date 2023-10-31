@@ -29,6 +29,7 @@
 
   .logo-box {
     text-align: right;
+    cursor: pointer;
     &.play::after {
       content: 'PLAY';
       color: $color-pink;

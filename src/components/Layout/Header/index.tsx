@@ -185,13 +185,24 @@ const Header = ({
   // @ts-ignore
   return (<Fragment>
       <header className='header'>
-        <a href="/" className={`logo-box ${playMode && 'play'}`}>
+        <div
+          className={`logo-box ${playMode && 'play'}`} 
+          onClick={() => {
+           let searchParams = new URLSearchParams(location.search)
+           if (searchParams.has('play')) {
+            searchParams.delete('play')
+           } else {
+            searchParams.set('play', '1')
+           }
+           history.push({ search: searchParams.toString() })
+           document.location.reload()
+        }}>
           {
             width &&
             <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt=""
                  className={isPhone ? (isSmallPhone ? 'logo-hero-image' : 'logo-image') : ''}/>
           }
-        </a>
+        </div>
 
         {
           !isPhone ?
