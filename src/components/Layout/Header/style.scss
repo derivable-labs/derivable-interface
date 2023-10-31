@@ -29,6 +29,10 @@
 
   .logo-box {
     text-align: right;
+    &.play::after {
+      content: 'PLAY';
+      color: $color-pink;
+    }
   }
 
   .logo-box::after {

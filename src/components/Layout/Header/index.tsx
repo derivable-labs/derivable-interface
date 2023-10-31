@@ -44,6 +44,7 @@ const Header = ({
   const [visibleNav, setVisibleNav] = useState<boolean>(false)
   const {login} = useAuth()
 
+  const [playMode, setPlayMode] = useState<boolean>(false)
   const isPhone = width && width < 768
   const isSmallPhone = isPhone && width < 400 && width > 300
 
@@ -171,6 +172,10 @@ const Header = ({
       console.error('error', ex)
     }
   }
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    setPlayMode(searchParams.has('play'))
+  },[location.search])
 
   const addNetwork = async (metadata: any) => {
     //@ts-ignore
@@ -180,7 +185,7 @@ const Header = ({
   // @ts-ignore
   return (<Fragment>
       <header className='header'>
-        <a href="/" className='logo-box'>
+        <a href="/" className={`logo-box ${playMode && 'play'}`}>
           {
             width &&
             <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt=""
