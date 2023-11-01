@@ -235,7 +235,7 @@ const Header = ({
               <Menu.Button as="div" className="dropdown-arrow center-both">
                 <div className='network-button'>
                   {/*@ts-ignore*/}
-                  <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo}`}
+                  <img width={24} height={24} src={`/icons/${NETWORK_SUPPORTED[chainId || chainIdDisplay]?.logo || "unsupported.png"}`}
                        alt=""/>
                   {/*@ts-ignore*/}
                   {isPhone ? <span>▾</span> : <span>{NETWORK_SUPPORTED[chainId || chainIdDisplay]?.name}</span>}
@@ -267,7 +267,7 @@ const Header = ({
                         }
                       }}
                     >
-                      <img src={`/icons/${net.logo}`} width={24} height={24} alt=""/>
+                      <img src={`/icons/${net.logo || 'unsupported.png'}`} width={24} height={24} alt=""/>
                       <span>{net.name}</span>
                     </div>
                   </Menu.Item>

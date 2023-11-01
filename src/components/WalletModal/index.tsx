@@ -32,7 +32,7 @@ export const WalletModal = ({
       <div className='view-on-explorer-box text-right mt-2'>
         {!chainId || !account ? '' :
           // @ts-ignore
-          <a href={`${NETWORK_SUPPORTED[chainId].explorer}/address/${account}`} target='_blank' className="view-on-explorer-link">
+          <a href={`${NETWORK_SUPPORTED[chainId]?.explorer}/address/${account}`} target='_blank' className="view-on-explorer-link" rel="noreferrer">
             <span className='mr-1'>View on Explorer</span>
             <img src='/icons/link_icon.svg' alt='' />
           </a>
