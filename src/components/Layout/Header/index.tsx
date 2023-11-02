@@ -256,7 +256,7 @@ const Header = ({
                         } else {
                           let searchParams = new URLSearchParams(location.search);
                           //@ts-ignore
-                          searchParams.set('chain', CHAINS[net.chainId]?.toLowerCase());
+                          searchParams.set('chain', NETWORK_SUPPORTED[net.chainId]?.key ?? net.chainId);
                           history.push({
                             pathname: location.pathname,
                             search: searchParams.toString()
