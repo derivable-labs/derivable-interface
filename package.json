@@ -28,6 +28,7 @@
     "crypto-browserify": "^3.12.0",
     "crypto-js": "3.1.9-1",
     "exposure-comp": "git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev",
+    "html-to-image": "^1.11.11",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
     "pool-comp": "git+ssh://git@github.com:derivable-labs/pools-comp.git#dev",
