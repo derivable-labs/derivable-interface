@@ -10,8 +10,8 @@ export const BSC_NETWORK = 56
 export const BSC_TESTNET_NETWORK = 97
 export const BASE_NETWORK = 8453
 
-export const DEFAULT_CHAIN = ARBITRUM_NETWORK
-export const CHAIN_IDS = [ARBITRUM_NETWORK, BASE_NETWORK, BSC_NETWORK]
+export const CHAIN_IDS = [/*ARBITRUM_NETWORK, BASE_NETWORK,*/ BSC_NETWORK]
+export const DEFAULT_CHAIN = CHAIN_IDS[0]
 
 export const CHAINS = {
   [ARBITRUM_NETWORK]: 'Arbitrum',
