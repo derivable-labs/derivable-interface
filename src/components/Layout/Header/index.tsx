@@ -4,7 +4,7 @@ import {useWindowSize} from "../../../hooks/useWindowSize";
 import {
   CHAIN_IDS,
   CHAINS, DEFAULT_CHAIN,
-  NETWORK_METADATA, NETWORK_SUPPORTED,
+  NETWORK_SUPPORTED,
   SELECTED_NETWORK_LOCAL_STORAGE_KEY,
   WALLET_CONNECTOR
 } from "../../../utils/constant";
@@ -166,7 +166,7 @@ const Header = ({
       //@ts-ignore
       if (ex.code !== 4001) {
         //@ts-ignore
-        return await addNetwork(NETWORK_METADATA[chainId])
+        return await addNetwork(NETWORK_SUPPORTED[chainId]?.metadata)
       }
 
       console.error('error', ex)
