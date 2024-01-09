@@ -420,6 +420,14 @@
     "@babel/helper-plugin-utils" "^7.20.2"
     "@babel/plugin-syntax-private-property-in-object" "^7.14.5"
 
+"@babel/plugin-proposal-unicode-property-regex@^7.18.6":
+  version "7.18.6"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.18.6.tgz#af613d2cd5e643643b65cded64207b15c85cb78e"
+  integrity sha512-2BShG/d5yoZyXZfVePH91urL5wTG6ASZU9M4o03lKK8u8UW1y08OMttBSOADTcJrnPMpvDXRG3G8fyLh4ovs8w==
+  dependencies:
+    "@babel/helper-create-regexp-features-plugin" "^7.18.6"
+    "@babel/helper-plugin-utils" "^7.18.6"
+
 "@babel/plugin-syntax-async-generators@^7.8.4":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-async-generators/-/plugin-syntax-async-generators-7.8.4.tgz#a983fb1aeb2ec3f6ed042a210f640e90e786fe0d"
@@ -5982,7 +5990,7 @@ dequal@^2.0.3:
 
 "derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#927b1d783eb0b3a10a8b2c01ebbba7a2c21cdfd1"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#669afb94eaf9f264a05be6f52a68bccae74b4ee7"
   dependencies:
     "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
     "@zoltu/ethereum-crypto" "^2.3.0"
@@ -5997,7 +6005,6 @@ dequal@^2.0.3:
     lodash "^4.17.21"
     move-decimal-point "^0.0.4"
     node-fetch "^2.6.7"
-    powerLib "git+ssh://git@github.com:derivable-labs/power-lib.git#build"
 
 des.js@^1.0.0:
   version "1.1.0"
@@ -7061,7 +7068,7 @@ expect@^29.0.0:
 
 "exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#0c4c7c2b67e139dbd04b4a5e8961437b11d6552a"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#c40649311efc5edf3cff727436c28dea6a2dd9fa"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -10645,8 +10652,9 @@ pngjs@^5.0.0:
 
 "pool-comp@git+ssh://git@github.com:derivable-labs/pools-comp.git#dev":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#11b47156459fafbba6f6c5794b9f95edeca83589"
+  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#56dff4443a1fd67f47e1d6e53b694caff8912d08"
   dependencies:
+    "@babel/plugin-proposal-unicode-property-regex" "^7.18.6"
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
     "@types/react-collapse" "^5.0.1"
@@ -11232,13 +11240,6 @@ postcss@^8.3.5, postcss@^8.4.21, postcss@^8.4.23, postcss@^8.4.4:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
-
-"powerLib@git+ssh://git@github.com:derivable-labs/power-lib.git#build":
-  version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/power-lib.git#502f7724fe3f25676f48e4107a0c7da705e25d7f"
-  dependencies:
-    ethers "^5.4.6"
-    lodash "^4.17.21"
 
 preact@^10.5.9:
   version "10.18.1"
