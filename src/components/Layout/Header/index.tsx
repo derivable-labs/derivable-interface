@@ -210,19 +210,12 @@ const Header = ({
             <div className='menu'>
               {
                 menus.map((menu, key) => {
-                  if (menu.name !== "Create") {
-                    return <Link
-                      to={menu.menuLink || menu.path}
-                      className={`menu--item ${(
-                        matchPath(location.pathname, {path: menu.path, exact: true, strict: false}) ||
-                        (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
-                    >{menu.name}</Link>
-                  } else {
-                    return <div className="menu--item tooltip">
-                      Create
-                      <span className="tooltiptext">COMING SOON</span>
-                    </div>
-                  }
+                  return <Link
+                    to={menu.menuLink || menu.path}
+                    className={`menu--item ${(
+                      matchPath(location.pathname, {path: menu.path, exact: true, strict: false}) ||
+                      (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
+                  >{menu.name}</Link>
                 })
               }
             </div>

@@ -3348,6 +3348,11 @@
     dotenv "^14.2.0"
     hardhat-watcher "^2.1.1"
 
+"@uniswap/token-lists@^1.0.0-beta.33":
+  version "1.0.0-beta.33"
+  resolved "https://registry.yarnpkg.com/@uniswap/token-lists/-/token-lists-1.0.0-beta.33.tgz#966ba96c9ccc8f0e9e09809890b438203f2b1911"
+  integrity sha512-JQkXcpRI3jFG8y3/CGC4TS8NkDgcxXaOQuYW8Qdvd6DcDiIyg2vVYCG9igFEzF0G6UvxgHkBKC7cWCgzZNYvQg==
+
 "@uniswap/v2-core@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@uniswap/v2-core/-/v2-core-1.0.1.tgz#af8f508bf183204779938969e2e54043e147d425"
@@ -5011,6 +5016,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001434, caniuse-lite@^1.0.30001538, can
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001558.tgz#d2c6e21fdbfe83817f70feab902421a19b7983ee"
   integrity sha512-/Et7DwLqpjS47JPEcz6VnxU9PwcIdVi0ciLXRWBQdj1XFye68pSQYpV0QtPTfUKWuOaEig+/Vez2l74eDc1tPQ==
 
+caniuse-lite@^1.0.30001576:
+  version "1.0.30001576"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001576.tgz#893be772cf8ee6056d6c1e2d07df365b9ec0a5c4"
+  integrity sha512-ff5BdakGe2P3SQsMsiqmt1Lc8221NR1VzHj5jXN5vBny9A6fpze94HiVV/n7XRosOlsShJcvMv5mdnpjOGCEgg==
+
 canonical-weth@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/canonical-weth/-/canonical-weth-1.4.0.tgz#e6b16574443e8ff0a132f1b4947bb2faf8c3e078"
@@ -5988,9 +5998,9 @@ dequal@^2.0.3:
   resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
-"derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build":
+"derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#search-index":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#669afb94eaf9f264a05be6f52a68bccae74b4ee7"
+  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#93cabbce53cce980f6913837fbdf8cab4fd94ffd"
   dependencies:
     "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
     "@zoltu/ethereum-crypto" "^2.3.0"
@@ -7066,20 +7076,21 @@ expect@^29.0.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-"exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#dev":
+"exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#feature/search-by-index":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#c40649311efc5edf3cff727436c28dea6a2dd9fa"
+  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#62759ad759a3e7b35169fb197186b1d9500e8261"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
     "@types/lodash" "^4.14.186"
     "@types/react-collapse" "^5.0.1"
+    "@uniswap/token-lists" "^1.0.0-beta.33"
     "@uniswap/v3-core" "^1.0.1"
     "@uniswap/v3-sdk" "^3.9.0"
     antd "^5.8.4"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build"
+    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#search-index"
     desmos-react "^1.2.0"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
@@ -9436,7 +9447,7 @@ leven@^3.1.0:
 
 "leverage-slider@git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git#cd9ded722c49c464d1df26aef326c2d75a14f5d7"
+  resolved "git+ssh://git@github.com:derivable-labs/leverage-slider-comp.git#e945a1f9fd91b433485be82a2eb17c272076243a"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/lodash" "^4.14.186"
@@ -10650,9 +10661,9 @@ pngjs@^5.0.0:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
   integrity sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==
 
-"pool-comp@git+ssh://git@github.com:derivable-labs/pools-comp.git#dev":
+"pool-comp@git+ssh://git@github.com:derivable-labs/pools-comp.git#add-deploy-function":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#56dff4443a1fd67f47e1d6e53b694caff8912d08"
+  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#30c7ecf224acf6fa336cea242c29ac776fec71c8"
   dependencies:
     "@babel/plugin-proposal-unicode-property-regex" "^7.18.6"
     "@reduxjs/toolkit" "^1.7.1"
@@ -10661,8 +10672,8 @@ pngjs@^5.0.0:
     "@uniswap/v3-core" "^1.0.1"
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
-    caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#dev-build"
+    caniuse-lite "^1.0.30001576"
+    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#search-index"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
