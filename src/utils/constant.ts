@@ -24,26 +24,26 @@ export const RPC_URLS: { [chainId: number]: string } = {
 }
 
 export const NETWORK_SUPPORTED: { [chainId: number]: any } = {
-  // [ARBITRUM_NETWORK]: {
-  //   chainId: ARBITRUM_NETWORK,
-  //   name: 'Arbitrum',
-  //   fullname: 'Arbitrum',
-  //   key: 'arbitrum',
-  //   logo: '42161.svg',
-  //   explorer: "https://arbiscan.io/",
-  //   nativeTokenSymbol: 'ETH',
-  //   metadata: {
-  //     chainId: "0x" + ARBITRUM_NETWORK.toString(16),
-  //     chainName: "Arbitrum",
-  //     nativeCurrency: {
-  //       name: "ETH",
-  //       symbol: "ETH",
-  //       decimals: 18,
-  //     },
-  //     rpcUrls: 'https://arb1.arbitrum.io/rpc',
-  //     blockExplorerUrls: ["https://arbiscan.io/"],
-  //   },
-  // },
+  [ARBITRUM_NETWORK]: {
+    chainId: ARBITRUM_NETWORK,
+    name: 'Arbitrum',
+    fullname: 'Arbitrum',
+    key: 'arbitrum',
+    logo: '42161.svg',
+    explorer: "https://arbiscan.io/",
+    nativeTokenSymbol: 'ETH',
+    metadata: {
+      chainId: "0x" + ARBITRUM_NETWORK.toString(16),
+      chainName: "Arbitrum",
+      nativeCurrency: {
+        name: "ETH",
+        symbol: "ETH",
+        decimals: 18,
+      },
+      rpcUrls: 'https://arb1.arbitrum.io/rpc',
+      blockExplorerUrls: ["https://arbiscan.io/"],
+    },
+  },
   // [BASE_NETWORK]: {
   //   chainId: BASE_NETWORK,
   //   name: 'Base',
