@@ -3927,6 +3927,15 @@ assign-symbols@^1.0.0:
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
   integrity sha512-Q+JC7Whu8HhmTdBph/Tq59IoRtoy6KAm5zzPv00WdujX82lbAL8K7WVjne7vdCsAmbF4AYaDOPyO3k0kl8qIrw==
 
+"assisted-json-rpc-provider@https://github.com/derivable-labs/AssistedJsonRpcProvider.git#dev":
+  version "1.0.0"
+  resolved "https://github.com/derivable-labs/AssistedJsonRpcProvider.git#1410f1d9a1e733c35d409f4ee79b0ca348f16718"
+  dependencies:
+    async-task-throttle-on-response "^1.0.1"
+    ethers "^5.5.3"
+    lodash "^4.17.21"
+    node-fetch "2"
+
 ast-types-flow@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/ast-types-flow/-/ast-types-flow-0.0.7.tgz#f70b735c6bca1a5c9c22d982c3e39e7feba3bdad"
@@ -3943,6 +3952,14 @@ async-mutex@^0.2.6:
   integrity sha512-Hs4R+4SPgamu6rSGW8C7cV9gaWUKEHykfzCCvIRuaVv636Ju10ZdeUbvb4TBEW0INuq2DHZqXbK4Nd3yG4RaRw==
   dependencies:
     tslib "^2.0.0"
+
+async-task-throttle-on-response@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/async-task-throttle-on-response/-/async-task-throttle-on-response-1.0.1.tgz#cca646d6f45dad3a345de1e2fce655d3ed162afc"
+  integrity sha512-QkPkgozkqL04ondFdwEMnBMGMHfSvMTcFiWPQC8un1NJuFZweTXVIbgPPROW8yD22Mm+IxFCBBOLEK5fILo+AA==
+  dependencies:
+    driftless "^2.0.3"
+    node-fetch "2.2.0"
 
 async@^2.1.2:
   version "2.6.4"
@@ -5626,6 +5643,13 @@ dotenv@^10.0.0:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
+driftless@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/driftless/-/driftless-2.0.3.tgz#4378cade7aa8e39dee33faa94413bdc67850d90b"
+  integrity sha512-hSDKsQphnL4O0XLAiyWQ8EiM9suXH0Qd4gMtwF86b5wygGV8r95w0JcA38FOmx9N3LjFCIHLG2winLPNken4Tg==
+  dependencies:
+    present "^0.0.3"
+
 duplexer@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
@@ -6314,7 +6338,7 @@ eth-rpc-errors@^4.0.2:
   dependencies:
     fast-safe-stringify "^2.0.6"
 
-ethers@5:
+ethers@5, ethers@^5.5.3:
   version "5.7.2"
   resolved "https://registry.yarnpkg.com/ethers/-/ethers-5.7.2.tgz#3a7deeabbb8c030d4126b24f84e525466145872e"
   integrity sha512-wswUsmWo1aOK8rR7DIKiWSw9DbLWe6x98Jrn8wcTflTVvaXhAMaB5zGAXy0GYQEQp9iO1iSHWVyARQm11zUtyg==
@@ -9268,12 +9292,17 @@ node-addon-api@^2.0.0:
   resolved "https://registry.yarnpkg.com/node-addon-api/-/node-addon-api-2.0.2.tgz#432cfa82962ce494b132e9d72a15b29f71ff5d32"
   integrity sha512-Ntyt4AIXyaLIuMHF6IOoTakB3K+RWxwtsHNRxllEoA6vPwP9o4866g6YWDLUdnucilZhmkxiHwHr11gAENw+QA==
 
-node-fetch@^2.6.12:
+node-fetch@2, node-fetch@^2.6.12:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.7.0.tgz#d0f0fa6e3e2dc1d27efcd8ad99d550bda94d187d"
   integrity sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==
   dependencies:
     whatwg-url "^5.0.0"
+
+node-fetch@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.2.0.tgz#4ee79bde909262f9775f731e3656d0db55ced5b5"
+  integrity sha512-OayFWziIxiHY8bCUyLX6sTpDH8Jsbp4FfYd1j1f7vZyfgkcOnAyM4oQR16f8a0s7Gl/viMGRey8eScYk4V4EZA==
 
 node-forge@^1:
   version "1.3.1"
@@ -10472,6 +10501,11 @@ prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==
+
+present@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/present/-/present-0.0.3.tgz#5aefb8a5ddf6b34c65743bf1cde53523aac1c05a"
+  integrity sha512-d0QMXYTKHuAO0n0IfI/x2lbNwybdNWjRQ08hQySzqMQ2M0gwh/IetTv2glkPJihFn+cMDYjK/BiVgcLcjsASgg==
 
 pretty-bytes@^5.3.0, pretty-bytes@^5.4.1:
   version "5.6.0"

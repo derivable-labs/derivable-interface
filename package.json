@@ -23,6 +23,7 @@
     "@web3-react/types": "^8.2.0",
     "@web3-react/walletconnect-v2": "^8.3.7",
     "assert": "^2.0.0",
+    "assisted-json-rpc-provider": "https://github.com/derivable-labs/AssistedJsonRpcProvider.git#dev",
     "buffer": "^6.0.3",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
