@@ -8,6 +8,7 @@ import {ethers} from 'ethers';
 import {Web3ReactProvider} from '@web3-react/core';
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {connectors} from "./utils/connectors";
+import Transfer from './pages/Transfer';
 
 window.Buffer = window.Buffer || Buffer;
 
@@ -31,20 +32,13 @@ root.render(
           <Route>
             <App dapps={[
               {
-                configs: require('exposure-comp/dist/configs'),
-                Component: React.lazy(() => {
-                  // @ts-ignore
-                  import('exposure-comp/dist/component.css');
-                  return import('exposure-comp/dist/component');
-                })
-              },
-              {
-                configs: require('pool-comp/dist/configs'),
-                Component: React.lazy(() => {
-                  // @ts-ignore
-                  import('pool-comp/dist/component.css');
-                  return import('pool-comp/dist/component');
-                })
+                configs: {
+                  // Any component should be ok as long as it's props respect className which is resizable by CSS
+                  icon: (props: any) => (<React.Fragment></React.Fragment>),
+                  name: 'Transfer Positions',
+                  path: '/transfer'
+                },
+                Component: Transfer
               }
             ]}
             />
