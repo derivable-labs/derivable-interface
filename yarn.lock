@@ -1615,9 +1615,9 @@
     bech32 "1.1.4"
     ws "7.4.6"
 
-"@ethersproject/providers@https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master":
+"@ethersproject/providers@https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?v5.3.5.0":
   version "5.5.2"
-  resolved "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master#b08c9914f8e5464b759cab60589883692242cd71"
+  resolved "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?v5.3.5.0#9c83e26a9160d0308c105ceda3c4e4d48b372555"
   dependencies:
     "@ethersproject/abstract-provider" "^5.5.0"
     "@ethersproject/abstract-signer" "^5.5.0"
@@ -5998,11 +5998,11 @@ dequal@^2.0.3:
   resolved "https://registry.yarnpkg.com/dequal/-/dequal-2.0.3.tgz#2644214f1997d39ed0ee0ece72335490a7ac67be"
   integrity sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==
 
-"derivable-tools@git+ssh://git@github.com:derivable-labs/derivable-tools.git#search-index":
+"derivable-tools@git+ssh://git@github.com:derivable-labs/engine.git#search-index":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/derivable-tools.git#93cabbce53cce980f6913837fbdf8cab4fd94ffd"
+  resolved "git+ssh://git@github.com:derivable-labs/engine.git#337b95ad1f41623f4322b4346b4484d5d60af1d7"
   dependencies:
-    "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?master"
+    "@ethersproject/providers" "https://gitpkg.now.sh/derivable-labs/ethers.js/packages/providers?v5.3.5.0"
     "@zoltu/ethereum-crypto" "^2.3.0"
     "@zoltu/ethereum-fetch-json-rpc" "^13.1.4"
     "@zoltu/ethereum-types" "^9.0.4"
@@ -7076,9 +7076,9 @@ expect@^29.0.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-"exposure-comp@git+ssh://git@github.com:derivable-labs/exposure-comp.git#feature/search-by-index":
+"exposure-comp@git+ssh://git@github.com:derivable-labs/trade-comp.git#feature/search-by-index":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/exposure-comp.git#62759ad759a3e7b35169fb197186b1d9500e8261"
+  resolved "git+ssh://git@github.com:derivable-labs/trade-comp.git#80b5117cc35847bcbfa86a3acbe06201cb2c639a"
   dependencies:
     "@reduxjs/toolkit" "^1.7.1"
     "@types/desmos" "^1.6.0"
@@ -7090,7 +7090,7 @@ expect@^29.0.0:
     antd "^5.8.4"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
     caniuse-lite "^1.0.30001434"
-    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#search-index"
+    derivable-tools "git+ssh://git@github.com:derivable-labs/engine.git#search-index"
     desmos-react "^1.2.0"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
@@ -10661,9 +10661,9 @@ pngjs@^5.0.0:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
   integrity sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==
 
-"pool-comp@git+ssh://git@github.com:derivable-labs/pools-comp.git#add-deploy-function":
+"pool-comp@git+ssh://git@github.com:derivable-labs/create-comp.git#add-deploy-function":
   version "1.0.0"
-  resolved "git+ssh://git@github.com:derivable-labs/pools-comp.git#30c7ecf224acf6fa336cea242c29ac776fec71c8"
+  resolved "git+ssh://git@github.com:derivable-labs/create-comp.git#aab936242e31bbecdfb7fd8f4340ebb1dbe5a779"
   dependencies:
     "@babel/plugin-proposal-unicode-property-regex" "^7.18.6"
     "@reduxjs/toolkit" "^1.7.1"
@@ -10673,7 +10673,7 @@ pngjs@^5.0.0:
     "@uniswap/v3-sdk" "^3.9.0"
     assisted-json-rpc-provider "git+ssh://git@github.com:derivable-labs/AssistedJsonRpcProvider.git#dev"
     caniuse-lite "^1.0.30001576"
-    derivable-tools "git+ssh://git@github.com:derivable-labs/derivable-tools.git#search-index"
+    derivable-tools "git+ssh://git@github.com:derivable-labs/engine.git#search-index"
     ethereum-multicall "^2.15.0"
     ethers "^5.4.6"
     graphql "^15.5.0"
@@ -10694,6 +10694,7 @@ pngjs@^5.0.0:
     redux-localstorage-simple "^2.4.1"
     redux-thunk "^2.3.0"
     swr "^2.0.0"
+    truncate-ethereum-address "^0.3.0"
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -13749,6 +13750,11 @@ tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
+
+truncate-ethereum-address@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/truncate-ethereum-address/-/truncate-ethereum-address-0.3.0.tgz#0b006841f7fc03208858e0c5f9fe760469d7f0d3"
+  integrity sha512-PVuWuCS2iL4U8X8G+uweD5aILFVjV03U6zIBXteahEhDKRrql35kwXsW6aDLPz4lOQdTe5CMIqdodoY5AEeedA==
 
 tryer@^1.0.1:
   version "1.0.1"
