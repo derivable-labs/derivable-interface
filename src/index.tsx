@@ -31,19 +31,19 @@ root.render(
           <Route>
             <App dapps={[
               {
-                configs: require('exposure-comp/dist/configs'),
+                configs: require('trade-comp/dist/configs'),
                 Component: React.lazy(() => {
                   // @ts-ignore
-                  import('exposure-comp/dist/component.css');
-                  return import('exposure-comp/dist/component');
+                  import('trade-comp/dist/component.css');
+                  return import('trade-comp/dist/component');
                 })
               },
               {
-                configs: require('pool-comp/dist/configs'),
+                configs: require('create-comp/dist/configs'),
                 Component: React.lazy(() => {
                   // @ts-ignore
-                  import('pool-comp/dist/component.css');
-                  return import('pool-comp/dist/component');
+                  import('create-comp/dist/component.css');
+                  return import('create-comp/dist/component');
                 })
               }
             ]}

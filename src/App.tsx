@@ -2,7 +2,7 @@ import React, {Suspense, useMemo, useState} from 'react';
 import {useLocation, useHistory, matchPath} from 'react-router-dom';
 import Layout from "./components/Layout";
 import './style/main.scss'
-import 'exposure-comp/dist/component.css'
+import 'trade-comp/dist/component.css'
 import {useWeb3React} from '@web3-react/core';
 import Header from "./components/Layout/Header";
 import {DappType} from "./utils/types";
