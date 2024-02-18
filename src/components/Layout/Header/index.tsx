@@ -187,22 +187,23 @@ const Header = ({
       <header className='header'>
         <div
           className={`logo-box tooltip ${playMode && 'play'}`} 
-          onClick={() => {
-           let searchParams = new URLSearchParams(location.search)
-           if (searchParams.has('play')) {
-            searchParams.delete('play')
-           } else {
-            searchParams.set('play', '1')
-           }
-           history.push({ search: searchParams.toString() })
-           document.location.reload()
-        }}>
+          // onClick={() => {
+          //  let searchParams = new URLSearchParams(location.search)
+          //  if (searchParams.has('play')) {
+          //   searchParams.delete('play')
+          //  } else {
+          //   searchParams.set('play', '1')
+          //  }
+          //  history.push({ search: searchParams.toString() })
+          //  document.location.reload()
+          // }}
+        >
           {
             width &&
             <img src={isSmallPhone ? '/icons/logo.svg' : '/logo.png'} alt=""
                  className={isPhone ? (isSmallPhone ? 'logo-hero-image' : 'logo-image') : ''}/>
           }
-          <span className="tooltiptext">TOGGLE PLAY MODE</span>
+          {/* <span className="tooltiptext">TOGGLE PLAY MODE</span> */}
         </div>
 
         {
