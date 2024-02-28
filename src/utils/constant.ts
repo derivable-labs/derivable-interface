@@ -9,18 +9,21 @@ export const LOCAL_NETWORK = 31337
 export const BSC_NETWORK = 56
 export const BSC_TESTNET_NETWORK = 97
 export const BASE_NETWORK = 8453
+export const OPBNB_NETWORK = 204
 
 export const CHAINS = {
   [ARBITRUM_NETWORK]: 'Arbitrum',
   [BASE_NETWORK]: 'Base',
-  [BSC_NETWORK]: 'BNB Chain'
+  [BSC_NETWORK]: 'BNB Chain',
+  [OPBNB_NETWORK]: 'opBNB',
 }
 
 export const RPC_URLS: { [chainId: number]: string } = {
-  [BSC_NETWORK]: 'https://bsc-dataseed.binance.org/' as string,
-  [ARBITRUM_NETWORK]: 'https://arb1.arbitrum.io/rpc' as string,
-  [LOCAL_NETWORK]: 'http://localhost:8545/' as string,
-  [BSC_TESTNET_NETWORK]: 'https://data-seed-prebsc-1-s1.binance.org:8545/' as string
+  [ARBITRUM_NETWORK]: 'https://arb1.arbitrum.io/rpc',
+  [BSC_NETWORK]: 'https://bsc-dataseed.binance.org/',
+  [OPBNB_NETWORK]: 'https://opbnb-mainnet-rpc.bnbchain.org',
+  [BSC_TESTNET_NETWORK]: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+  [LOCAL_NETWORK]: 'http://localhost:8545/',
 }
 
 export const NETWORK_SUPPORTED: { [chainId: number]: any } = {
@@ -83,8 +86,28 @@ export const NETWORK_SUPPORTED: { [chainId: number]: any } = {
       rpcUrls: 'https://bsc-dataseed3.binance.org',
       blockExplorerUrls: ["https://bscscan.com"],
     },
+  },
+  [OPBNB_NETWORK]: {
+    chainId: OPBNB_NETWORK,
+    name: 'opBNB',
+    fullname: 'opBNB Mainnet',
+    key: 'opbnb',
+    logo: '204.png',
+    explorer: "https://opbnb.bscscan.com",
+    nativeTokenSymbol: 'BNB',
+    metadata: {
+      chainId: "0x" + OPBNB_NETWORK.toString(16),
+      chainName: "opBNB Mainnet",
+      nativeCurrency: {
+        name: "BNB",
+        symbol: "BNB",
+        decimals: 18,
+      },
+      rpcUrls: 'https://opbnb-mainnet-rpc.bnbchain.org',
+      blockExplorerUrls: ["https://opbnb.bscscan.com"],
+    },
   }
 }
 
-export const CHAIN_IDS = Object.keys(NETWORK_SUPPORTED).map(id => Number(id))
+export const CHAIN_IDS = [ARBITRUM_NETWORK, BSC_NETWORK, OPBNB_NETWORK]
 export const DEFAULT_CHAIN = CHAIN_IDS[0]

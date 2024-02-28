@@ -2,7 +2,7 @@ import { initializeConnector } from '@web3-react/core'
 import { MetaMask } from '@web3-react/metamask'
 import { WalletConnect as WalletConnectV2 } from '@web3-react/walletconnect-v2'
 import { Network } from '@web3-react/network'
-import {ARBITRUM_NETWORK, CHAIN_IDS, DEFAULT_CHAIN, RPC_URLS} from "../utils/constant";
+import { CHAIN_IDS, DEFAULT_CHAIN, RPC_URLS} from "../utils/constant";
 import {CoinbaseWallet} from "@web3-react/coinbase-wallet";
 
 export const URLS: { [chainId: number]: string[] } = Object.keys(RPC_URLS).reduce<{ [chainId: number]: string[] }>(
@@ -29,7 +29,7 @@ export const [web3CoinbaseWallet, web3CoinbaseWalletHooks] = initializeConnector
     new CoinbaseWallet({
       actions,
       options: {
-        url: RPC_URLS[ARBITRUM_NETWORK],
+        url: RPC_URLS[DEFAULT_CHAIN],
         appName: 'Derivable',
         appLogoUrl: '',
         reloadOnDisconnect: false,
