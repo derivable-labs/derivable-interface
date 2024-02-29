@@ -328,22 +328,21 @@ const Header = ({
                       <div style={{paddingLeft: '1rem'}}>
                         {
                           menus.map((menu, key) => {
-                            if (menu.name !== "Create") {
-                              return (<Menu.Item key={key + 2}>
-                                <Link
-                                  to={menu.menuLink || menu.path}
-                                  className={`dapp-menu-item ${(
-                                    matchPath(location.pathname, {path: menu.path, exact: true, strict: false}) ||
-                                    (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
-                                >{menu.name}</Link>
-                              </Menu.Item>)
-                            } else {
-                              return (<Menu.Item key={key + 2}>
-                                <span className='dapp-menu-item'>
-                                  Create (coming soon)
-                                </span>
-                              </Menu.Item>)
-                            }
+                            // if (menu.name !== "Create") {
+                            //   return (<Menu.Item key={key + 2}>
+                            //     <span className='dapp-menu-item'>
+                            //       {menu.name} (coming soon)
+                            //     </span>
+                            //   </Menu.Item>)
+                            // }
+                            return (<Menu.Item key={key + 2}>
+                              <Link
+                                to={menu.menuLink || menu.path}
+                                className={`dapp-menu-item ${(
+                                  matchPath(location.pathname, {path: menu.path, exact: true, strict: false}) ||
+                                  (key === 0 && ['/', '/trade', '/exposure', '/swap'].includes(location.pathname))) && 'active'}`}
+                              >{menu.name}</Link>
+                            </Menu.Item>)
                           })
                         }
                       </div>
